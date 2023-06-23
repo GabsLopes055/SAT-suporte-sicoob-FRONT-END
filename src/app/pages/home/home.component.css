@@ -1,0 +1,31 @@
+.content {
+    margin: 2%;
+    padding: 30px;
+    height: 92%;
+    display: flex;
+    overflow-y: auto;
+    /* flex-wrap: wrap;
+    justify-content: center;
+    position: relative; */
+}
+
+.container{
+    display: flex;   
+    flex-wrap: wrap;
+}
+
+
+h1, h6 {
+    font-family: 'Roboto Mono';
+}
+
+.card-infobip{
+    justify-content: center;
+    /* align-items: center; */
+    text-align: center;
+    padding: 20px;
+    margin: 20px 20px 20px 0;
+    width: 47%;
+    height: auto;
+    align-items: center;
+}

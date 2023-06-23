@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="content mat-elevation-z8">
+    <div class="img">
+      <img matCardImage src="../assets/img/image-login.png">
+    </div>
+    <div class="form">
+      <h1>SAT</h1>
+      <h3>Sistema de Auxílio Técnico</h3>
+      <mat-divider></mat-divider>
+      <form [formGroup]="formLogin">
+        <mat-form-field appearance="outline">
+          <mat-label>Login</mat-label>
+          <input matInput placeholder="Informe seu Login" formControlName="username">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error>O campo é obrigatório !</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput placeholder="Informe sua Senha" type="password" formControlName="password">
+          <mat-icon matSuffix>key</mat-icon>
+          <mat-error>O campo é obrigatório !</mat-error>
+        </mat-form-field>
+      </form>
+      <div class="fictures">
+        <div class="remember">
+          <mat-checkbox class="example-margin">Mantenha-me conectado</mat-checkbox>
+        </div>
+        <div class="reset-password">
+          <a (click)="resetPassword()">Esqueci Minha Senha</a>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-raised-button color="primary" [disabled]="!formLogin.valid" (click)="submitForm()">Logar<mat-icon
+          matSuffix>login</mat-icon></button>
+      <button mat-raised-button id="btn-cadastrar" (click)="register()">Cadastrar-se<mat-icon
+          matSuffix>add</mat-icon></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.content{
+    margin: 2%;
+    padding: 30px;
+    height: 92%;
+    font-family: 'Roboto Mono';
+    /* background-color: aqua; */
+}
+h1 {
+    font-family: 'Roboto Mono';
+}
+.title {
+    display: flex;
+}
+
+.title button {
+    margin-left: 10px;
+    margin-top: -9px;
+}

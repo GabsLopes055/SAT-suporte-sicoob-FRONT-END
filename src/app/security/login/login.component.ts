@@ -1,0 +1,71 @@
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Router } from '@angular/router';
+import { LoginService } from '../auth/login.service';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent {
+
+  public formLogin: FormGroup;
+
+  constructor(
+    public dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+  ) {
+
+    this.formLogin = this.criarFormulario();
+
+  }
+
+  title = 'project-sat';
+
+  ngOnInit(): void {
+
+  }
+
+  public criarFormulario(): FormGroup {
+    return this.formBuilder.group({
+      username: ["rute.milem", [Validators.required]],
+      password: ["G@bs2305", [Validators.required]]
+    })
+  }
+
+  public submitForm() {
+
+    if (this.formLogin.valid) {
+      const { username, password } = this.formLogin.value;
+      this.loginService.login(username, password).subscribe(
+        (res) => {
+          this.router.navigate(['dashboard'])
+        }
+      )
+    }
+  }
+
+  public register() {
+    this.dialog.open(RegisterComponent, {
+      width: "80%",
+      height: "auto"
+    })
+  }
+
+  public resetPassword() {
+    this.dialog.open(ResetPasswordComponent, {
+      width: "80%",
+      height: "80%"
+    })
+  }
+
+
+
+}

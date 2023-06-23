@@ -1,0 +1,43 @@
+<mat-dialog-content>
+
+    <!-- <div class="container">
+        <div class="content"> -->
+            <h1>Cadastrar-se</h1>
+            <h6>* Ficamos felizes em saber que deseja se juntar a nós !. Para isso, preencha o formulário e aguarde um
+                de
+                nossos técnicos aprovar sua entrada. </h6>
+            <mat-divider></mat-divider>
+            <form [formGroup]="formGroup">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome Completo</mat-label>
+                    <input matInput placeholder="Informe seu nome completo" formControlName="name">
+                    <mat-icon matSuffix>face</mat-icon>
+                    <mat-error>O campo é obrigatório !</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Informe seu email" formControlName="email">
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-error>Informe um E-mail válido !</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Usuário</mat-label>
+                    <input matInput placeholder="Informe seu usuário" formControlName="username">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error>O campo é obrigatório !</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input matInput placeholder="Informe sua senha" type="password" formControlName="password">
+                    <mat-icon matSuffix>key</mat-icon>
+                    <mat-error>O campo é obrigatório !</mat-error>
+                </mat-form-field>
+                <mat-divider></mat-divider>
+                <div mat-dialog-actions align="start">
+                    <button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="createNewUser()">Cadastrar</button>
+                    <button mat-button color="warn" mat-dialog-close>Fechar</button>
+                </div>
+            </form>
+        <!-- </div>
+    </div> -->
+</mat-dialog-content>

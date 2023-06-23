@@ -4,8 +4,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url(../assets/img/background-login.png);
+    background-image: url(../../../assets/img/background-login.png);
     
+
 }
 
 .content {
@@ -54,6 +55,7 @@ mat-form-field {
 .reset-password>a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 button{
@@ -63,6 +65,14 @@ button{
 
 #btn-cadastrar{
     background-color: #00ae9d;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
 }
 
 @media (max-width: 1024px) {
