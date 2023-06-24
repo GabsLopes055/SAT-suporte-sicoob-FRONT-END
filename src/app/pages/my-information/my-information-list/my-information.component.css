@@ -5,8 +5,20 @@
     font-family: 'Roboto Mono';
     /* background-color: aqua; */
 }
-h1 {
+.main {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    text-align: center;
+    margin-top: 50px;
+    align-items: center;
+}
+h1,h3 {
     font-family: 'Roboto Mono';
+}
+
+.status > h3 {
+    color: green;
 }
 .title {
     display: flex;

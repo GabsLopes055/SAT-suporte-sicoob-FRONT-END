@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
 
         if (token && expirationDate) {
 
-            const currentDate = new Date().getMinutes();
+            const currentDate = new Date().getTime().toLocaleString();
 
             if (expirationDate < currentDate) {
                 this.route.navigate(['/']);

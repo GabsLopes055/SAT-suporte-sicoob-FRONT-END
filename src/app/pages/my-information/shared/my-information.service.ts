@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
@@ -8,9 +8,10 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class MyInformationService {
 
   constructor(private http: HttpClient, private message: MatSnackBar) { }
+
 
   showMessage(msg: string): void {
     this.message.open(msg, "X", {
@@ -35,15 +36,22 @@ export class UserServiceService {
     return EMPTY;
   }
 
-  public listAllUsers(): Observable<User[]> {
+  public listUserByUserName(): Observable<User> {
 
-    const url = `${environment.baseUrlBackend}/users`
+    const username = this.getUsernameSessionStorage();
 
-    return this.http.get<User[]>(url).pipe(
+    const url = `${environment.baseUrlBackend}/users/username/${username}`;
+
+    return this.http.get<User>(url).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
     )
 
   }
+
+  public getUsernameSessionStorage(): string | null {
+    return sessionStorage.getItem('login');
+  }
+
 
 }

@@ -16,3 +16,16 @@ h1 {
     margin-left: 10px;
     margin-top: -9px;
 }
+
+.main {
+    height: 100vh;
+    overflow-x: auto;
+}
+th,
+td {
+    text-align: center;
+    font-family: 'Roboto Mono';
+}
+td{
+    cursor: pointer;
+}

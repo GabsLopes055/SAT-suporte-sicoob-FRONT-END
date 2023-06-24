@@ -1,0 +1,58 @@
+<mat-card class="content">
+    <div class="title">
+        <h1>Minhas Informações</h1>
+        <button mat-icon-button matTooltip="Voltar" (click)="cancel()"><i class="material-icons">arrow_back</i></button>
+    </div>
+    <mat-divider></mat-divider>
+
+    <mat-tab-group>
+        <mat-tab label="Minhas Informações">
+            <div class="main">
+
+                <div class="id">
+                    <p mat-icon-button>
+                        <i class="material-icons" matTooltip="Identificador">fingerprint</i>
+                    </p>
+                    <h3> {{user.cdUser}}</h3>
+                </div>
+
+                <div class="name">
+                    <p mat-icon-button>
+                        <i class="material-icons" matTooltip="Nome">badge</i>
+                    </p>
+                    <h3> {{user.name }}</h3>
+                </div>
+
+                <div class="username">
+                    <p mat-icon-button>
+                        <i class="material-icons" matTooltip="Usuário">person</i>
+                    </p>
+
+                    <h3>{{user.username }}</h3>
+                </div>
+
+            </div>
+
+            <div class="main">
+
+                <div class="email">
+                    <p mat-icon-button>
+                        <i class="material-icons" matTooltip="E-mail">email</i>
+                    </p>
+                    <h3>{{user.email }}</h3>
+                </div>
+
+                <div class="status">
+                    <p mat-icon-button>
+                        <i class="material-icons" matTooltip="Status">label</i>
+                    </p>
+                    <h3>{{user.status }}</h3>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Redefinir Senha">
+            <br>
+            Em Desenvolvimento
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

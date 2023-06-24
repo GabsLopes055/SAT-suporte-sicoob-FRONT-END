@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { MyInformationRoutingModule } from './my-information-routing.module';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MyInformationComponent } from './my-information-list/my-information.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+
+@NgModule({
+  declarations: [
+    MyInformationComponent
+  ],
+  imports: [
+    CommonModule,
+    MyInformationRoutingModule,
+    MatCardModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatTabsModule
+  ]
+})
+export class MyInformationModule { }
