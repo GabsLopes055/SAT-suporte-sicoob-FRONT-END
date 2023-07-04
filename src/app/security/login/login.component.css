@@ -75,6 +75,16 @@ form {
     margin-top: 25px;
 }
 
+@media (max-width: 1260px) {
+    .img{
+        display: none;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 1024px) {
     .img{
         display: none;

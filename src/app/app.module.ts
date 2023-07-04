@@ -24,8 +24,9 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 import { ResetPasswordComponent } from './security/reset-password/reset-password.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { CreateSmsComponent } from './pages/send-sms/create-sms/create-sms.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     RegisterComponent,
     LoginComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
+    CreateSmsComponent
   ],
   imports: [
     HttpClientModule,
@@ -56,7 +58,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatCheckboxModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -35,6 +35,7 @@ export class UserServiceService {
     return EMPTY;
   }
 
+
   public listAllUsers(): Observable<User[]> {
 
     const url = `${environment.baseUrlBackend}/users`
@@ -42,6 +43,29 @@ export class UserServiceService {
     return this.http.get<User[]>(url).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
+  public deleteUser(idUser: number): Observable<any> {
+
+    const url = `${environment.baseUrlBackend}/users/${idUser}`;
+
+    return this.http.delete<any>(url).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
+  public edituser(user: User): Observable<User> {
+
+    const url = `${environment.baseUrlBackend}/users/${user.cdUser}`;
+
+    return this.http.put<User>(url, user).pipe(
+      map((response) => response,
+        catchError((e) => this.errorHandler(e))
+      )
     )
 
   }

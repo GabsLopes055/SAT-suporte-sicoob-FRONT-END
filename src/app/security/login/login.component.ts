@@ -27,7 +27,7 @@ export class LoginComponent {
 
   }
 
-  title = 'project-sat';
+  title = 'Sistema de Auxílio Técnico';
 
   ngOnInit(): void {
 
@@ -54,14 +54,14 @@ export class LoginComponent {
 
   public register() {
     this.dialog.open(RegisterComponent, {
-      width: "80%",
+      width: "50%",
       height: "auto"
     })
   }
 
   public resetPassword() {
     this.dialog.open(ResetPasswordComponent, {
-      width: "80%",
+      width: "50%",
       height: "80%"
     })
   }

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="content">
+        <h1>Visualizar SMS</h1>
+        <mat-divider></mat-divider>
+        <div class="main">
+
+            <div class="id">
+                <p mat-icon-button>
+                    <i class="material-icons" matTooltip="Identificador">fingerprint</i>
+                </p>
+                <h3> {{sms.cdSMS}}</h3>
+            </div>
+
+            <div class="phone">
+                <p mat-icon-button>
+                    <i class="material-icons" matTooltip="Telefone">badge</i>
+                </p>
+                <h3> {{sms.phone }}</h3>
+            </div>
+
+            <div class="username">
+                <p mat-icon-button>
+                    <i class="material-icons" matTooltip="Usuário">person</i>
+                </p>
+
+                <h3>{{sms.username }}</h3>
+            </div>
+
+        </div>
+        <div class="smstext">
+            <p mat-icon-button>
+                <i class="material-icons" matTooltip="Mensagem Enviada">message</i>
+            </p>
+            <h3>{{sms.textsms }}</h3>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+</div>

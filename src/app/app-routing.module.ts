@@ -5,6 +5,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/user-list/users.component';
 import { AuthGuard } from './security/auth/AuthGuard.guard';
+import { SendSMSComponent } from './pages/send-sms/list-sms-sends/send-sms.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'dashboard', component: LayoutComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      {path: 'send-sms', loadChildren: () => import('./../app/pages/send-sms/send-sms.module').then(module => module.SendSMSModule)},
       { path: 'my-informations', loadChildren: () => import('./../app/pages/my-information/my-information.module').then(module => module.MyInformationModule) },
       { path: 'users', loadChildren: () => import('./../app/pages/users/user.module').then(module => module.UserModule) }
     ]
