@@ -11,6 +11,7 @@
 
 .container{
     display: flex;   
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -23,9 +24,18 @@ h1, h6 {
     justify-content: center;
     /* align-items: center; */
     text-align: center;
-    padding: 20px;
-    margin: 20px 20px 20px 0;
+    padding: 15px;
+    margin: 15px;
+    /* margin: 20px 20px 20px 0; */
     width: 47%;
     height: auto;
-    align-items: center;
+    /* align-items: center; */
+}
+
+mat-divider{
+    margin-top: 15px;
+}
+
+button{
+    margin-top: 15px;
 }

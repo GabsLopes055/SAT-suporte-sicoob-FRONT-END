@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MyInformationService } from '../shared/my-information.service';
-import { User } from 'src/app/interfaces/model.user';
+import { User } from 'src/app/interfaces/user.model';
 import { Location } from '@angular/common';
 
 @Component({

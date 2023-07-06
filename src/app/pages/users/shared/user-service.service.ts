@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
-import { User } from 'src/app/interfaces/model.user';
+import { User } from 'src/app/interfaces/user.model';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({

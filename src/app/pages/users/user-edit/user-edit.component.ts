@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../shared/user-service.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { User } from 'src/app/interfaces/model.user';
+import { User } from 'src/app/interfaces/user.model';
 
 @Component({
   selector: 'app-user-edit',

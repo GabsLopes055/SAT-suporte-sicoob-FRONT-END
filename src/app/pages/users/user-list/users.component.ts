@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/interfaces/model.user';
+import { User } from 'src/app/interfaces/user.model';
 import { UserServiceService } from '../shared/user-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDeleteComponent } from '../user-delete/user-delete.component';
@@ -26,6 +26,7 @@ export class UsersComponent {
   ngOnInit(): void {
 
     this.listAllUsers();
+    console.log(this.users)
   }
 
   dialog = this.model.afterAllClosed.subscribe(() => {

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="content">
+        <h1>Editar Software</h1>
+        <h6>* Preencha o formulário corretamente. </h6>
+        <mat-divider></mat-divider>
+        <form [formGroup]="formGroup">
+            <mat-form-field appearance="outline">
+                <mat-label>Título</mat-label>
+                <input matInput placeholder="Informe um titulo" formControlName="title">
+                <mat-icon matSuffix>title</mat-icon>
+                <mat-error>O campo é obrigatório !</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Link</mat-label>
+                <input matInput placeholder="Informe um link" formControlName="link">
+                <mat-icon matSuffix>link</mat-icon>
+                <mat-error>O campo é obrigatório !</mat-error>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+
+            <div mat-dialog-actions align="start">
+                <button mat-raised-button color="accent" (click)="editSoftware()">Editar</button>
+                <button mat-button color="warn" mat-dialog-close>Fechar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -14,12 +14,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewSMSComponent } from './view-sms/view-sms.component'
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     SendSMSComponent,
     ViewSMSComponent,
-    
+
   ],
   imports: [
     CommonModule,
@@ -37,7 +38,8 @@ import { ViewSMSComponent } from './view-sms/view-sms.component'
     ReactiveFormsModule,
     MatIconModule,
     MatPaginatorModule,
-    
+    MatDialogModule
+
   ]
 })
 export class SendSMSModule { }

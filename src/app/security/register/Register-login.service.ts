@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { User } from 'src/app/interfaces/model.user';
+import { User } from 'src/app/interfaces/user.model';
 
 @Injectable({
   providedIn: 'root'

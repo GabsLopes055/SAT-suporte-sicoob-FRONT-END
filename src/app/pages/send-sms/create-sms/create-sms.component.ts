@@ -15,8 +15,6 @@ export class CreateSmsComponent {
 
   selected = '';
 
-
-
   constructor(
     private formBuilder: FormBuilder,
     private sessionLogin: LoginService,
@@ -24,7 +22,6 @@ export class CreateSmsComponent {
     private dialog: MatDialog
   ) {
     this.formGroup = this.createFormSMS();
-    console.log(this.createFormSMS())
   }
 
   public isFormControlInvalid(controlName: string): boolean {
@@ -56,9 +53,6 @@ export class CreateSmsComponent {
 
   sendsms() {
     this.textSMS()
-
-    console.log(this.formGroup.value)
-
     this.service.sendSMS(this.formGroup.value).subscribe(() => {
       this.service.showMessage('SMS Enviado ! Não se esqueça de resetar a senha deste usuário no AD !')
       this.dialog.closeAll();
@@ -81,10 +75,6 @@ export class CreateSmsComponent {
     } else {
       this.service.showMessage('Preencha o formulário corretamente !')
     }
-  }
-
-  public getUsernameSessionStorage(): string | null {
-    return sessionStorage.getItem('login');
   }
 
 }

@@ -10,6 +10,9 @@ mat-toolbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* background-color: #1CA295; */
+    /* background-color: #9ECB64; */
+    /* background-color: #00ae9d; */
 }
 
 .img{
