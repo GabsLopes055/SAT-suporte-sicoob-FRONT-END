@@ -19,9 +19,16 @@
 
             <mat-divider></mat-divider>
 
-            <div mat-dialog-actions align="start">
-                <button mat-raised-button color="accent" (click)="editSoftware()">Editar</button>
-                <button mat-button color="warn" mat-dialog-close>Fechar</button>
+            <div class="actions">
+                <div mat-dialog-actions align="start">
+                    <button mat-raised-button color="accent" (click)="editSoftware()">Editar</button>
+                    <button mat-button color="warn" mat-dialog-close>Fechar</button>
+                </div>
+                <div mat-dialog-actions align="end">
+                    <button mat-icon-button color="warn" (click)="excluirSoftware()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
             </div>
         </form>
     </div>

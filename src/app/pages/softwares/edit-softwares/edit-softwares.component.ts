@@ -15,15 +15,15 @@ export class EditSoftwaresComponent {
 
   constructor(
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) private data: {software: software},
+    @Inject(MAT_DIALOG_DATA) private data: { software: software },
     private formBuilder: FormBuilder,
     private service: SoftwaresService
-  ){
+  ) {
     this.formGroup = this.createFormEdit()
   }
 
 
-  createFormEdit(){
+  createFormEdit() {
     return this.formBuilder.group({
       cdsoftware: [this.data.software.cdsoftware, Validators.required],
       title: [this.data.software.title, Validators.required],
@@ -31,9 +31,16 @@ export class EditSoftwaresComponent {
     })
   }
 
-  editSoftware(){
+  editSoftware() {
     this.service.editSoftware(this.formGroup.value).subscribe(response => {
       this.service.showMessage('Software Editado !')
+      this.dialog.closeAll()
+    })
+  }
+
+  excluirSoftware() {
+    this.service.deleteSoftware(this.formGroup.controls['cdsoftware'].value).subscribe(response => {
+      this.service.showMessage('Software Deletado !')
       this.dialog.closeAll()
     })
   }

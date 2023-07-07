@@ -17,17 +17,17 @@ export class SoftwaresService {
     private message: MatSnackBar
   ) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, isError: boolean = false): void {
     this.message.open(msg, "X", {
       duration: 8000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      panelClass: ['blue-snackbar']
+      panelClass: isError ? ['.msg-error'] : ['.msg-success'],
     });
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage(e.message)
+    this.showMessage(e.message, true)
     // console.log()
     return EMPTY;
   }
@@ -59,6 +59,13 @@ export class SoftwaresService {
       )
     )
 
+  }
+
+  public deleteSoftware(cdsoftware: number): Observable<void> {
+    return this.http.delete<software>(this.url + "/softwares/" + cdsoftware).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
   }
 
 
