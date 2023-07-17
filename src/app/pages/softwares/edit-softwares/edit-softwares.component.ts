@@ -39,10 +39,9 @@ export class EditSoftwaresComponent {
   }
 
   excluirSoftware() {
-    this.service.deleteSoftware(this.formGroup.controls['cdsoftware'].value).subscribe(response => {
-      this.service.showMessage('Software Deletado !')
-      this.dialog.closeAll()
-    })
+    this.service.deleteSoftware(this.formGroup.controls['cdsoftware'].value).subscribe(response => { })
+    this.service.showMessage('Software Deletado !')
+    this.dialog.closeAll()
   }
 
 }

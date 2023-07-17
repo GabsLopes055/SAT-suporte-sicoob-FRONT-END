@@ -61,8 +61,11 @@ export class SoftwaresService {
 
   }
 
-  public deleteSoftware(cdsoftware: number): Observable<void> {
-    return this.http.delete<software>(this.url + "/softwares/" + cdsoftware).pipe(
+  public deleteSoftware(cdsoftware: number): Observable<any> {
+
+    const url = `${environment.baseUrlBackend}/softwares/${cdsoftware}`;
+
+    return this.http.delete(url, {responseType: 'text'}).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
     )

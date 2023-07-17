@@ -51,8 +51,38 @@
             </div>
         </mat-tab>
         <mat-tab label="Redefinir Senha">
-            <br>
-            Em Desenvolvimento
+
+            <div class="main">
+
+
+                <form [formGroup]="formPassword">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Informe a senha antiga</mat-label>
+                        <input matInput placeholder="Informe a senha antiga" formControlName="oldPassword" type="password">
+                        <mat-icon matSuffix>key_gen</mat-icon>
+                        <mat-error>O campo é obrigatório !</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Informe a senha nova</mat-label>
+                        <input matInput placeholder="Informe a senha nova" formControlName="newPassword" type="password">
+                        <mat-icon matSuffix>key_gen</mat-icon>
+                        <mat-error>O campo é obrigatório !</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirme a senha nova</mat-label>
+                        <input matInput placeholder="Confirme a senha nova" formControlName="confirmPassword" type="password">
+                        <mat-icon matSuffix>key_gen</mat-icon>
+                        <mat-error>O campo é obrigatório !</mat-error>
+                    </mat-form-field>
+
+                    <button mat-raised-button color="accent">Enviar</button>
+
+                </form>
+            </div>
+
         </mat-tab>
         <mat-tab label="Foto de Perfil">
             <br>

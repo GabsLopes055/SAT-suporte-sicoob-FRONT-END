@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { MyInformationService } from '../shared/my-information.service';
 import { User } from 'src/app/interfaces/user.model';
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @Component({
   selector: 'app-my-information',
@@ -9,20 +12,40 @@ import { Location } from '@angular/common';
   styleUrls: ['./my-information.component.css']
 })
 export class MyInformationComponent {
-  
-  constructor(private myInformation: MyInformationService, private location: Location){}
+
+  constructor(
+    private myInformation: MyInformationService,
+    private location: Location,
+    private formBuilder: FormBuilder
+  ) { }
 
 
   user!: User;
 
-  ngOnInit(): void {
-    this.listMyInformation()
+  formPassword!: FormGroup;
+
+  // id = this.user.cdUser
+
+  ngOnInit() {
+    this.listMyInformation();
+    this.createForm();
+    console.log(this.formPassword.value)
+    console.log()
   }
 
-  listMyInformation() {
-    return this.myInformation.listUserByUserName().subscribe(user => {
+  createForm(): FormGroup {
+    return this.formPassword = this.formBuilder.group({
+      oldPassword: ['', Validators.required],
+      newPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    })
+  }
+
+  listMyInformation(): User {
+    this.myInformation.listUserByUserName().subscribe(user => {
       this.user = user
     })
+    return this.user;
   }
 
   cancel() {

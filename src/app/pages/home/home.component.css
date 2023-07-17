@@ -4,38 +4,33 @@
     height: 93%;
     display: flex;
     overflow-y: auto;
-    /* flex-wrap: wrap;
-    justify-content: center;
-    position: relative; */
 }
 
-.container{
-    display: flex;   
+.container {
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 
-h1, h6 {
+h1,
+h6 {
     font-family: 'Roboto Mono';
 }
 
-.card-infobip{
+.card-infobip {
     justify-content: center;
-    /* align-items: center; */
     text-align: center;
     padding: 15px;
     margin: 15px;
-    /* margin: 20px 20px 20px 0; */
     width: 47%;
     height: auto;
-    /* align-items: center; */
 }
 
-mat-divider{
+mat-divider {
     margin-top: 15px;
 }
 
-button{
+button {
     margin-top: 15px;
 }
