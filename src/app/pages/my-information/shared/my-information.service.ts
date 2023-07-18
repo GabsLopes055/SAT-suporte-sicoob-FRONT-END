@@ -49,6 +49,19 @@ export class MyInformationService {
 
   }
 
+  public resetPasswordByUser(passwordRequest: any): Observable<string> {
+    
+    const username = this.getUsernameSessionStorage();
+
+    const url = `${environment.baseUrlBackend}/users/password/${username}`;
+
+    return this.http.put<any>(url, passwordRequest).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
   public getUsernameSessionStorage(): string | null {
     return sessionStorage.getItem('login');
   }

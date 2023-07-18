@@ -37,15 +37,20 @@ export class MyInformationComponent {
     return this.formPassword = this.formBuilder.group({
       oldPassword: ['', Validators.required],
       newPassword: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      newConfirmPassword: ['', Validators.required]
     })
   }
 
-  listMyInformation(): User {
-    this.myInformation.listUserByUserName().subscribe(user => {
+  listMyInformation() {
+    return this.myInformation.listUserByUserName().subscribe(user => {
       this.user = user
     })
-    return this.user;
+  }
+
+  resetPassword() {
+    this.myInformation.resetPasswordByUser(this.formPassword.value).subscribe({})
+    this.myInformation.showMessage('Senha Alterada !')
+    this.formPassword.reset()
   }
 
   cancel() {
