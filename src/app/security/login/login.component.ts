@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
-import { MatDividerModule } from '@angular/material/divider';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
@@ -62,7 +61,7 @@ export class LoginComponent {
   public resetPassword() {
     this.dialog.open(ResetPasswordComponent, {
       width: "50%",
-      height: "80%"
+      height: "auto"
     })
   }
 

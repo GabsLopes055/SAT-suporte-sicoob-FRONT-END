@@ -46,6 +46,19 @@ export class LoginService {
     )
   }
 
+  public resetPasswordByUser(passwordRequest: any): Observable<any> {
+
+    const username = passwordRequest.username;
+
+    const url = `${environment.baseUrlBackend}/users/password/${username}`;
+
+    return this.http.put<any>(url, passwordRequest).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
   public getToken(): string | null {
     return sessionStorage.getItem(environment.token)
   }
