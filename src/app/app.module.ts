@@ -27,6 +27,7 @@ import { ResetPasswordComponent } from './security/reset-password/reset-password
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CreateSmsComponent } from './pages/send-sms/create-sms/create-sms.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ListManuaisComponent } from './pages/manuais/list-manuais/list-manuais.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatSelectModule } from '@angular/material/select';
     LoginComponent,
     LayoutComponent,
     HomeComponent,
-    CreateSmsComponent
+    CreateSmsComponent,
+    ListManuaisComponent
   ],
   imports: [
     HttpClientModule,

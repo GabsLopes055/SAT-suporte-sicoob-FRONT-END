@@ -15,7 +15,8 @@ const routes: Routes = [
       { path: 'send-sms', loadChildren: () => import('./../app/pages/send-sms/send-sms.module').then(module => module.SendSMSModule) },
       { path: 'my-informations', loadChildren: () => import('./../app/pages/my-information/my-information.module').then(module => module.MyInformationModule) },
       { path: 'users', loadChildren: () => import('./../app/pages/users/user.module').then(module => module.UserModule) },
-      { path: 'softwares', loadChildren: () => import('./../app/pages/softwares/softwares.module').then(module => module.SoftwaresModule) }
+      { path: 'softwares', loadChildren: () => import('./../app/pages/softwares/softwares.module').then(module => module.SoftwaresModule) },
+      {path: 'manuais', loadChildren: () => import('./pages/manuais/manual.module').then(module => module.ManualModule)}
     ]
   },
   { path: '**', redirectTo: "" }
