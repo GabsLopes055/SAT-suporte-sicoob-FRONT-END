@@ -4,6 +4,7 @@ import { CreateSoftwaresComponent } from '../create-softwares/create-softwares.c
 import { SoftwaresService } from '../shared/softwares.service';
 import { software } from 'src/app/interfaces/softwares.model';
 import { EditSoftwaresComponent } from '../edit-softwares/edit-softwares.component';
+import { CategoryOfManualsService } from '../../manuais/shared/category-of-manuals.service';
 
 @Component({
   selector: 'app-list-softwares',
