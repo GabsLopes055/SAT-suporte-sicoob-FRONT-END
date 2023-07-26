@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, Observable, catchError, map } from 'rxjs';
 import { manual } from 'src/app/interfaces/manuals.model';
 import { environment } from 'src/environments/environment.development';
 
@@ -28,15 +28,14 @@ export class ManualsService {
 
   errorHandler(e: any): Observable<any> {
     this.showMessage(e.message, true)
-    // console.log()
     return EMPTY;
   }
 
   public listAllManuals(): Observable<manual[]> {
-
-    const url = `${environment.baseUrlBackend}/manual`;
-
-    return this.http.get<any>(url)
+    return this.http.get<manual[]>(environment.baseUrlBackend + "/manual").pipe(
+      map(response => (response)),
+      catchError((e) => this.errorHandler(e))
+    )
   }
 
 }

@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ManualsService } from '../shared/manuals.service';
 import { CategoryOfManualsService } from '../shared/category-of-manuals.service';
 import { category } from 'src/app/interfaces/categoryOfManuals.model';
+import { manual } from 'src/app/interfaces/manuals.model';
 
 @Component({
   selector: 'app-list-manuais',
@@ -11,7 +12,8 @@ import { category } from 'src/app/interfaces/categoryOfManuals.model';
 })
 export class ListManuaisComponent {
 
-  listCategory!: category[];
+  listCategory!: category[] | any;
+  listManuals!: manual[];
 
   constructor(
     private location: Location,
@@ -20,16 +22,23 @@ export class ListManuaisComponent {
   ) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    // console.log(this.listCategory = this.category.listAllCategory())
-    console.log(this.listAllCategory())
+
+    this.listAllManuals()
+    this.listAllCategory()
+    
   }
 
-  public listAllCategory(): any {
+  public listAllCategory() {
     this.serviceCategory.listAllCategory().subscribe(response => {
       this.listCategory = response
-      console.log(response)
+      console.log(this.listCategory)
+    })
+  }
+
+  public listAllManuals() {
+    this.service.listAllManuals().subscribe(response => {
+      this.listManuals = response
+      
     })
   }
 

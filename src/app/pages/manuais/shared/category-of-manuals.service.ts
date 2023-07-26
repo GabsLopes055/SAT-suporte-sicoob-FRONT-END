@@ -32,12 +32,8 @@ export class CategoryOfManualsService {
     return EMPTY;
   }
 
-  public listAllCategory(): Observable<category[]>{
-
-    const url = `${environment.baseUrlBackend}/category`;
-
-    console.log(url);
-    return this.http.get<category[]>(url).pipe(
+  public listAllCategory(): Observable<category[]> {
+    return this.http.get<category[]>(environment.baseUrlBackend + "/category").pipe(
       map(response => (response)),
       catchError((e) => this.errorHandler(e))
     );

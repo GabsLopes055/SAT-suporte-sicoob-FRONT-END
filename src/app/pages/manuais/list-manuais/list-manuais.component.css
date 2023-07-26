@@ -1,9 +1,11 @@
-.content{
+.content {
     margin: 2%;
     padding: 30px;
     height: 93%;
     font-family: 'Roboto Mono';
+    overflow-y: auto;
 }
+
 .title {
     display: flex;
 }
@@ -13,15 +15,20 @@
     margin-top: -9px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Roboto Mono';
 }
 
 .container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.containerManual{
+    width: 100%;
 }
 
 .cardManuals {
@@ -36,4 +43,27 @@ h1, h2, h3 {
 mat-divider {
     width: 100%;
     margin-top: 5px;
+}
+
+.titleManual {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+}
+
+mat-card-title {
+    cursor: pointer;
+}
+
+.contentManual {
+    display: flex;
+    /* align-items: baseline; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
 }

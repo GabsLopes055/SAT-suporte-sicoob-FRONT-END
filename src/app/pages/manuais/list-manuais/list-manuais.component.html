@@ -7,17 +7,30 @@
 
     <div class="container">
 
-        <mat-card class="cardManuals" >
-            <mat-card-header>
-                <mat-card-title >
-                    <h1>teste</h1>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-divider></mat-divider>
-            <mat-card-footer>
-                <h1>teste</h1>
-            </mat-card-footer>
-        </mat-card>
+        <div class="containerManual" *ngFor="let categories of listCategory">
+
+
+            <div class="titleManual">
+                <h1>{{categories.category}}</h1>
+            </div>
+
+            <div class="contentManual">
+
+                <mat-card class="cardManuals" *ngFor="let manual of categories.manual">
+                    <mat-card-header>
+                        <mat-card-title>
+                            {{manual.docName}}
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-card-footer>
+                        <a target="_blank"><button mat-raised-button color="accent">Baixar</button></a>
+                    </mat-card-footer>
+                </mat-card>
+
+                <mat-divider></mat-divider>
+            </div>
+        </div>
     </div>
 
 </mat-card>
