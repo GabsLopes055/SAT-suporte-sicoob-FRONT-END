@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="content">
+        <h1>Cadastrar Manual</h1>
+        <h6>* Preencha o formulário corretamente. </h6>
+        <mat-divider></mat-divider>
+        <form [formGroup]="formCreate">
+            <mat-form-field appearance="outline">
+                <button mat-icon-button matPrefix>
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+                <mat-label>Arquivo</mat-label>
+                <input type="text" readonly matInput formControlName="file" />
+                <input type="file" multiple hidden #f_input  />
+                <mat-icon matSuffix>file</mat-icon>
+                <mat-error>O campo é obrigatório !</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Link</mat-label>
+                <input matInput placeholder="Informe um link" formControlName="category">
+                <mat-icon matSuffix>link</mat-icon>
+                <mat-error>O campo é obrigatório !</mat-error>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+                <div mat-dialog-actions align="start">
+                    <button mat-raised-button color="accent">Editar</button>
+                    <button mat-button color="warn" mat-dialog-close>Fechar</button>
+                </div>
+                <!-- <div mat-dialog-actions align="end">
+                    <button mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div> -->
+            </div>
+        </form>
+    </div>
+</div>

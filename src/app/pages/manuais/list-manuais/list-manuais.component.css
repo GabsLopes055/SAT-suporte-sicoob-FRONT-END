@@ -33,8 +33,8 @@ h3 {
 
 .cardManuals {
     padding: 15px;
-    margin: 15px;
-    width: 20%;
+    margin: 10px;
+    width: 15%;
     height: auto;
     text-align: center;
     align-items: center;
@@ -62,8 +62,10 @@ mat-card-title {
 
 .contentManual {
     display: flex;
-    /* align-items: baseline; */
-    justify-content: space-between;
+    flex-direction: row;
     flex-wrap: wrap;
-    
+}
+mat-card-footer {
+    display: flex;
+    align-items: center;
 }

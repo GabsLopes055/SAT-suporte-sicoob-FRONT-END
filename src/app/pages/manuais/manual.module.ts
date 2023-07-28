@@ -1,14 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatDividerModule } from '@angular/material/divider';
 import { ManualRoutingModule } from './manual-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateManualComponent } from './create-manual/create-manual.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CreateManualComponent
+  ],
   imports: [
     CommonModule,
-    ManualRoutingModule
+    ManualRoutingModule,
+    MatDividerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ]
 })
 export class ManualModule { }
