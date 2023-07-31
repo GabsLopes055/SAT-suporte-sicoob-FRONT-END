@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreateManualComponent } from './create-manual/create-manual.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class ManualModule { }

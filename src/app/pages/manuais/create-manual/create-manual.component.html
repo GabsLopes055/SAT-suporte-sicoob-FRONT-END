@@ -2,30 +2,37 @@
     <div class="content">
         <h1>Cadastrar Manual</h1>
         <h6>* Preencha o formulário corretamente. </h6>
+
         <mat-divider></mat-divider>
+
         <form [formGroup]="formCreate">
-            <mat-form-field appearance="outline">
-                <button mat-icon-button matPrefix>
+
+            <mat-form-field appearance="outline" required>
+                <mat-label>Selecione o Manual</mat-label>
+                <button mat-icon-button matPrefix (click)="fileInput.click()">
                     <mat-icon>attach_file</mat-icon>
                 </button>
-                <mat-label>Arquivo</mat-label>
-                <input type="text" readonly matInput formControlName="file" />
-                <input type="file" multiple hidden #f_input  />
-                <mat-icon matSuffix>file</mat-icon>
-                <mat-error>O campo é obrigatório !</mat-error>
+                <input type="text" readonly matInput value="{{selectedFile?.name}}" required/>
+                <input type="file" multiple hidden #fileInput (change)="onFileSelected($event)"
+                    formControlName="file" />
+                <mat-error disabled="!valid.error">O campo é obrigatório</mat-error>
             </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Link</mat-label>
-                <input matInput placeholder="Informe um link" formControlName="category">
-                <mat-icon matSuffix>link</mat-icon>
-                <mat-error>O campo é obrigatório !</mat-error>
+
+            <mat-form-field appearance="outline" required>
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlName="cdCategory" required>
+                    <mat-option *ngFor="let categories of category" [value]="categories.cdCategory">
+                        {{categories.category}}
+                    </mat-option>
+                </mat-select>
+                <mat-error disabled="!valid.error">O campo é obrigatório</mat-error>
             </mat-form-field>
 
             <mat-divider></mat-divider>
 
             <div class="actions">
                 <div mat-dialog-actions align="start">
-                    <button mat-raised-button color="accent">Editar</button>
+                    <button mat-raised-button color="primary" (click)="sendManual()">Salvar</button>
                     <button mat-button color="warn" mat-dialog-close>Fechar</button>
                 </div>
                 <!-- <div mat-dialog-actions align="end">
