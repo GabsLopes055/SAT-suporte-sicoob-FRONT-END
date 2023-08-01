@@ -69,3 +69,9 @@ mat-card-footer {
     display: flex;
     align-items: center;
 }
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

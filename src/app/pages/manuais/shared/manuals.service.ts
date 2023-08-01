@@ -38,4 +38,17 @@ export class ManualsService {
     )
   }
 
+  public createNewManual(manual: manual): Observable<manual> {
+
+    // const headers = new Headers();
+    // headers.append(name: 'Content-Type','application/x-www-form-urlencoded');
+
+
+    // , { headers: headers }
+    return this.http.post<manual>(this.url + '/manual', manual).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
 }

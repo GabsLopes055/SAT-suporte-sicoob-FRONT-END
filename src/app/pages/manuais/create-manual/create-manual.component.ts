@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { category } from 'src/app/interfaces/categoryOfManuals.model';
 import { CategoryOfManualsService } from '../shared/category-of-manuals.service';
+import { ManualsService } from '../shared/manuals.service';
+import { catchError, map } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-manual',
@@ -18,7 +21,9 @@ export class CreateManualComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private serviceCategory: CategoryOfManualsService
+    private serviceCategory: CategoryOfManualsService,
+    private serviceManual: ManualsService,
+    private dialog: MatDialog
   ) {
     this.formCreate = this.createForm();
     this.listCategory();
@@ -42,7 +47,10 @@ export class CreateManualComponent {
   }
 
   sendManual() {
-    console.log(this.formCreate.value)
+    this.serviceManual.createNewManual(this.formCreate.value).subscribe(() => {
+      this.serviceManual.showMessage('Manual Cadastrado !')
+      this.dialog.closeAll()
+    })
   }
 
 
