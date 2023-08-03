@@ -24,6 +24,10 @@ mat-icon {
     vertical-align: middle;
 }
 
+mat-nav-list {
+    align-items: center;
+}
+
 mat-nav-list mat-list-item a {
     color: #fff;
 }

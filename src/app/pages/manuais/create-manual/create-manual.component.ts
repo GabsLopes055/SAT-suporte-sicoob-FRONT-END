@@ -19,6 +19,7 @@ export class CreateManualComponent {
 
   selectedFile: any = null;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private serviceCategory: CategoryOfManualsService,
@@ -43,11 +44,13 @@ export class CreateManualComponent {
   }
 
   onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0] ?? null;
+    this.selectedFile = event.target.files[0] as File;
+    console.log(this.selectedFile)
   }
 
   sendManual() {
-    this.serviceManual.createNewManual(this.formCreate.value).subscribe(() => {
+
+    this.serviceManual.createNewManual(this.selectedFile, this.formCreate.controls['cdCategory'].value).subscribe(() => {
       this.serviceManual.showMessage('Manual Cadastrado !')
       this.dialog.closeAll()
     })

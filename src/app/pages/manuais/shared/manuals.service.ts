@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
@@ -38,14 +38,17 @@ export class ManualsService {
     )
   }
 
-  public createNewManual(manual: manual): Observable<manual> {
+  public createNewManual(file: File, cdCategory: number): Observable<manual> {
 
-    // const headers = new Headers();
-    // headers.append(name: 'Content-Type','application/x-www-form-urlencoded');
+    
+    const formData: FormData = new FormData();
+    
+    formData.append('file', file, file.name)
+    formData.append('cdCategory', cdCategory.toString())
+    
+    // const manual: [File, number] = [formData, cdCategory]
 
-
-    // , { headers: headers }
-    return this.http.post<manual>(this.url + '/manual', manual).pipe(
+    return this.http.post<manual>(this.url + '/manual', formData).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
     )
