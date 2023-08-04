@@ -45,15 +45,19 @@ export class CreateManualComponent {
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0] as File;
-    console.log(this.selectedFile)
   }
 
   sendManual() {
 
-    this.serviceManual.createNewManual(this.selectedFile, this.formCreate.controls['cdCategory'].value).subscribe(() => {
-      this.serviceManual.showMessage('Manual Cadastrado !')
-      this.dialog.closeAll()
-    })
+    if (this.selectedFile == null) {
+      this.serviceManual.showMessage("Preencha o formulário corretamente !")
+    } else {
+      // console.log(this.selectedFile.file[0])
+      this.serviceManual.createNewManual(this.selectedFile, this.formCreate.controls['cdCategory'].value).subscribe(() => {
+        this.serviceManual.showMessage('Manual Cadastrado !')
+        this.dialog.closeAll()
+      })
+    }
   }
 
 

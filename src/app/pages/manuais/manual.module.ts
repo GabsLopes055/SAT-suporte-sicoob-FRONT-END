@@ -11,11 +11,14 @@ import { CreateManualComponent } from './create-manual/create-manual.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-
+import { ListCategoryComponent } from './category/list-category/list-category.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
-    CreateManualComponent
+    CreateManualComponent,
+    ListCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     ReactiveFormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatTooltipModule
   ]
 })
 export class ManualModule { }

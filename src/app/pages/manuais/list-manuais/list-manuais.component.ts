@@ -6,6 +6,7 @@ import { category } from 'src/app/interfaces/categoryOfManuals.model';
 import { manual } from 'src/app/interfaces/manuals.model';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CreateManualComponent } from '../create-manual/create-manual.component';
+import { ListCategoryComponent } from '../category/list-category/list-category.component';
 
 @Component({
   selector: 'app-list-manuais',
@@ -41,7 +42,6 @@ export class ListManuaisComponent {
   public listAllManuals() {
     this.service.listAllManuals().subscribe(response => {
       this.listManuals = response
-
     })
   }
 
@@ -52,6 +52,17 @@ export class ListManuaisComponent {
       // data: {
       //   id: id
       // }
+    })
+  }
+
+  model = this.dialog.afterAllClosed.subscribe(() => {
+    this.listAllCategory()
+  })
+
+  createCategory() {
+    this.dialog.open(ListCategoryComponent, {
+      width: '50%',
+      height: 'auto'
     })
   }
 
