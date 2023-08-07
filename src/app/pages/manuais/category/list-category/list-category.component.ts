@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { CategoryOfManualsService } from '../../shared/category-of-manuals.service';
 import { category } from 'src/app/interfaces/categoryOfManuals.model';
 import { DataSource } from '@angular/cdk/collections';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { EditCategoryComponent } from '../edit-category/edit-category.component';
+import { DeleteCategoryComponent } from '../delete-category/delete-category.component';
+import { CreateCategoryComponent } from '../create-category/create-category.component';
 
 @Component({
   selector: 'app-list-category',
@@ -15,7 +19,9 @@ export class ListCategoryComponent {
   row: String[] = ['cdCategory', 'category', 'edit', 'delete'];
 
   constructor(
-    private category: CategoryOfManualsService
+    private category: CategoryOfManualsService,
+    private dialog: MatDialog,
+    private dialogCreate: MatDialogRef<CreateCategoryComponent>
   ) {}
 
   ngOnInit(){
@@ -28,5 +34,33 @@ export class ListCategoryComponent {
       console.log(this.listCategory)
     })
   }
+
+  editCategory() {
+    this.dialog.open(EditCategoryComponent, {
+      width: '50%',
+      height: 'auto'
+    })
+  }
+
+  deleteCategory() {
+    this.dialog.open(DeleteCategoryComponent, {
+      width: '50%',
+      height: 'auto'
+    })
+  }
+
+  createCategory() {
+    this.dialog.open(CreateCategoryComponent, {
+      width: '50%',
+      height: 'auto'
+    })
+  }
+
+  // createDialog = this.dialogCreate.afterClosed().subscribe(() => {
+    
+  // })
+
+
+  
 
 }

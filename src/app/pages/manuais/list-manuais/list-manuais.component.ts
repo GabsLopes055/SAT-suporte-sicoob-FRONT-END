@@ -49,9 +49,6 @@ export class ListManuaisComponent {
     this.dialog.open(CreateManualComponent, {
       width: "50%",
       height: "auto",
-      // data: {
-      //   id: id
-      // }
     })
   }
 
@@ -59,10 +56,10 @@ export class ListManuaisComponent {
     this.listAllCategory()
   })
 
-  createCategory() {
+  listCategories() {
     this.dialog.open(ListCategoryComponent, {
       width: '50%',
-      height: 'auto'
+      height: '90%'
     })
   }
 

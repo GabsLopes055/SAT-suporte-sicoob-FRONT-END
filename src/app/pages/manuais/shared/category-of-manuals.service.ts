@@ -37,7 +37,13 @@ export class CategoryOfManualsService {
       map(response => (response)),
       catchError((e) => this.errorHandler(e))
     );
+  }
 
+  public createCategory(category: category): Observable<category> {
+    return this.http.post<category>(environment.baseUrlBackend + "/category", category).pipe(
+      map(response => (response)),
+      catchError((e) => this.errorHandler(e))
+    )
   }
 
 }

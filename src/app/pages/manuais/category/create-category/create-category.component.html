@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="content">
+
+        <div class="title">
+            <h1>Cadastrar Categoria</h1>
+            <h6>* Preencha o formulário corretamente. </h6>
+        </div>
+
+
+        <mat-divider></mat-divider>
+
+        <form [formGroup]="formCreate">
+            <mat-form-field appearance="outline">
+                <mat-label>Nome da Categoria</mat-label>
+                <input matInput placeholder="Informe o nome da categoria" formControlName="category">
+                <mat-icon matSuffix>category</mat-icon>
+                <mat-error>O campo é obrigatório !</mat-error>
+            </mat-form-field>
+        </form>
+
+
+        <mat-divider></mat-divider>
+        <div class="actions">
+            <div mat-dialog-actions align="start">
+                <button mat-raised-button color="primary" (click)="createCategory()">Cadastrar</button>
+                <button mat-button color="warn" mat-dialog-close>Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

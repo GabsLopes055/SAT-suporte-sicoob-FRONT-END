@@ -14,11 +14,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
+import { DeleteCategoryComponent } from './category/delete-category/delete-category.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
 
 @NgModule({
   declarations: [
     CreateManualComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    EditCategoryComponent,
+    DeleteCategoryComponent,
+    CreateCategoryComponent
   ],
   imports: [
     CommonModule,
