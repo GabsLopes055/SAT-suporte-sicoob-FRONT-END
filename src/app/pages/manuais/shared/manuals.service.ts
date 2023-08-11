@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, catchError, map } from 'rxjs';
@@ -40,18 +40,33 @@ export class ManualsService {
 
   public createNewManual(file: File, cdCategory: number): Observable<manual> {
 
-    
+
     const formData: FormData = new FormData();
-    
+
     formData.append('file', file, file.name)
     formData.append('cdCategory', cdCategory.toString())
-    
+
     // const manual: [File, number] = [formData, cdCategory]
 
     return this.http.post<manual>(this.url + '/manual', formData).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
     )
+  }
+
+  public downloadFile(cdManual: number): Observable<Blob> {
+
+    // const url = `${environment.baseUrlBackend}/manual/downloadManual/` + cdManual
+
+    // let headers = new Headers({
+
+    // })
+
+    return this.http.get<Blob>(this.url + "/manual/downloadManual/" + cdManual, { responseType: 'blob' as 'json' }).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
   }
 
 }

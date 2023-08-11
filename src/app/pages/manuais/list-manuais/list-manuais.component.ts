@@ -7,6 +7,7 @@ import { manual } from 'src/app/interfaces/manuals.model';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CreateManualComponent } from '../create-manual/create-manual.component';
 import { ListCategoryComponent } from '../category/list-category/list-category.component';
+// import 'rxjs/Rx' ;
 
 @Component({
   selector: 'app-list-manuais',
@@ -49,6 +50,31 @@ export class ListManuaisComponent {
     this.dialog.open(CreateManualComponent, {
       width: "50%",
       height: "auto",
+    })
+  }
+
+  downloadFile(cdManual: number, docName: string) {
+
+    this.service.downloadFile(cdManual).subscribe(response => {
+
+      console.log(response)
+
+
+      const blob = new Blob([`${response.size}`], { type: `${response.type}` })
+
+      console.log(blob)
+
+
+      // Criando um link temporário para fazer o download do arquivo
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+
+      // Configurando o cabeçalho Content-Disposition para definir o nome do arquivo, docName é o nome do arquivo quando é baixado
+      link.setAttribute('download', docName);
+
+      // Clicando no link para iniciar o download
+      link.click();
+
     })
   }
 

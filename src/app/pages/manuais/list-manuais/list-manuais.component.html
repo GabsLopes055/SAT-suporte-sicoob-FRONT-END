@@ -36,7 +36,7 @@
                     </mat-card-header>
                     <mat-divider></mat-divider>
                     <mat-card-footer>
-                        <a target="_blank"><button mat-raised-button color="accent">Baixar</button></a>                        
+                        <a><button mat-raised-button color="accent" (click)="downloadFile(manual.id, manual.docName)">Baixar</button></a>                        
                     </mat-card-footer>
                 </mat-card>
 
