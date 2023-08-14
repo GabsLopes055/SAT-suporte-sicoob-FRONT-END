@@ -17,17 +17,22 @@ export class CategoryOfManualsService {
     private message: MatSnackBar
   ) { }
 
-  showMessage(msg: string, isError: boolean = false): void {
+  showMessage(msg: string): void {
     this.message.open(msg, "X", {
       duration: 8000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      panelClass: isError ? ['.msg-error'] : ['.msg-success'],
     });
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage(e.message, true)
+    if (e.status == 400) {
+      this.showMessage("Erro ao excluir categoria !")
+    } else if (e.status == 404) {
+      this.showMessage("Categoria não encontrada !")
+    } else if (e.status == 500) {
+      this.showMessage("Erro interno do servidor !")
+    }
     // console.log()
     return EMPTY;
   }
@@ -41,6 +46,13 @@ export class CategoryOfManualsService {
 
   public createCategory(category: category): Observable<category> {
     return this.http.post<category>(environment.baseUrlBackend + "/category", category).pipe(
+      map(response => (response)),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
+  public deleteCategory(cdCategory: number): Observable<string> {
+    return this.http.delete<string>(environment.baseUrlBackend + "/category/" + cdCategory).pipe(
       map(response => (response)),
       catchError((e) => this.errorHandler(e))
     )

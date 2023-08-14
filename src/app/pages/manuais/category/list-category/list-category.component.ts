@@ -42,10 +42,13 @@ export class ListCategoryComponent {
     })
   }
 
-  deleteCategory() {
+  deleteCategory(cdCategory: number) {
     this.dialog.open(DeleteCategoryComponent, {
       width: '50%',
-      height: 'auto'
+      height: 'auto',
+      data: {
+        cdCategory: cdCategory
+      }
     })
   }
 

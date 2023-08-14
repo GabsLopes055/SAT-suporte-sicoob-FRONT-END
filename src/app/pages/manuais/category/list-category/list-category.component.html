@@ -35,7 +35,7 @@
             <ng-container matColumnDef="delete">
                 <th mat-header-cell *matHeaderCellDef matTooltip="Excluir Categoria"> Excluir </th>
                 <td mat-cell *matCellDef="let row"> <button color="warn"
-                        mat-icon-button (click)="deleteCategory()"><mat-icon>delete</mat-icon></button> </td>
+                        mat-icon-button (click)="deleteCategory(row.cdCategory)"><mat-icon>delete</mat-icon></button> </td>
             </ng-container>
 
         </table>
