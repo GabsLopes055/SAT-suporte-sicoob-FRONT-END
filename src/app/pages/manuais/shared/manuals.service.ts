@@ -54,19 +54,4 @@ export class ManualsService {
     )
   }
 
-  public downloadFile(cdManual: number): Observable<Blob> {
-
-    // const url = `${environment.baseUrlBackend}/manual/downloadManual/` + cdManual
-
-    // let headers = new Headers({
-
-    // })
-
-    return this.http.get<Blob>(this.url + "/manual/downloadManual/" + cdManual, { responseType: 'blob' as 'json' }).pipe(
-      map((response) => response),
-      catchError((e) => this.errorHandler(e))
-    )
-
-  }
-
 }

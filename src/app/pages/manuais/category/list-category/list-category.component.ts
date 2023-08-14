@@ -21,17 +21,16 @@ export class ListCategoryComponent {
   constructor(
     private category: CategoryOfManualsService,
     private dialog: MatDialog,
-    private dialogCreate: MatDialogRef<CreateCategoryComponent>
-  ) {}
+    private dialogCategory: MatDialogRef<CreateCategoryComponent>
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.listAllCategory()
   }
 
   public listAllCategory() {
     this.category.listAllCategory().subscribe(response => {
       this.listCategory = response
-      console.log(this.listCategory)
     })
   }
 
@@ -56,10 +55,10 @@ export class ListCategoryComponent {
     })
   }
 
-  // createDialog = this.dialogCreate.afterClosed().subscribe(() => {
-    
+  // modal = this.dialogCategory.afterClosed().subscribe(() => {
+  //   alert('teste')
   // })
-
+  
 
   
 

@@ -12,14 +12,15 @@ import { ListManuaisComponent } from '../../list-manuais/list-manuais.component'
 export class CreateCategoryComponent {
 
   formCreate!: FormGroup;
-  
+
   // modalCreate = this.dialog;
 
   constructor(
     private formBuilder: FormBuilder,
     private service: CategoryOfManualsService,
+    private dialog: MatDialog,
     private modal: MatDialogRef<CreateCategoryComponent>
-  ){
+  ) {
     this.formCreate = this.createForm()
   }
 
@@ -32,12 +33,7 @@ export class CreateCategoryComponent {
   createCategory() {
     this.service.createCategory(this.formCreate.value).subscribe(response => {
       this.service.showMessage('Categoria Cadastrada');
-      this.modal.close()
+      this.dialog.closeAll()
     })
   }
-
-  // dialog = this.modal.afterClosed().subscribe({
-
-  // })
-
 }

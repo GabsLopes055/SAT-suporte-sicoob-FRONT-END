@@ -4,10 +4,9 @@ import { ManualsService } from '../shared/manuals.service';
 import { CategoryOfManualsService } from '../shared/category-of-manuals.service';
 import { category } from 'src/app/interfaces/categoryOfManuals.model';
 import { manual } from 'src/app/interfaces/manuals.model';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { CreateManualComponent } from '../create-manual/create-manual.component';
 import { ListCategoryComponent } from '../category/list-category/list-category.component';
-// import 'rxjs/Rx' ;
 
 @Component({
   selector: 'app-list-manuais',
@@ -36,7 +35,7 @@ export class ListManuaisComponent {
   public listAllCategory() {
     this.serviceCategory.listAllCategory().subscribe(response => {
       this.listCategory = response
-      // console.log(this.listCategory)
+      console.log(this.listCategory)
     })
   }
 
@@ -53,31 +52,6 @@ export class ListManuaisComponent {
     })
   }
 
-  downloadFile(cdManual: number, docName: string) {
-
-    this.service.downloadFile(cdManual).subscribe(response => {
-
-      console.log(response)
-
-
-      const blob = new Blob([`${response.size}`], { type: `${response.type}` })
-
-      console.log(blob)
-
-
-      // Criando um link temporário para fazer o download do arquivo
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-
-      // Configurando o cabeçalho Content-Disposition para definir o nome do arquivo, docName é o nome do arquivo quando é baixado
-      link.setAttribute('download', docName);
-
-      // Clicando no link para iniciar o download
-      link.click();
-
-    })
-  }
-
   model = this.dialog.afterAllClosed.subscribe(() => {
     this.listAllCategory()
   })
@@ -87,6 +61,48 @@ export class ListManuaisComponent {
       width: '50%',
       height: '90%'
     })
+  }
+
+  downloadFile(manual: manual) {
+    console.log(manual.id)
+    
+    const cdManual = manual.id
+
+    console.log(cdManual)
+
+    // this.service.downloadFile(cdManual).subscribe(response => {
+
+    //   // console.log(response)
+    //   const data = response.body
+
+      // const blob = new Blob(data, { type: docType }); // Cria um blob a partir dos bytes recebidos
+      // const link = document.createElement('a');
+      // link.href = window.URL.createObjectURL(blob);
+      // link.download = docName;
+      // link.click(); // Clique simulado no link para iniciar o download
+
+      // const a = document.createElement('a');
+      // document.body.appendChild(a);
+      // const json = JSON.stringify(response.body),
+      //   blob = new Blob([json], { type: response.body.type }),
+      //   url = window.URL.createObjectURL(blob);
+      // a.href = url;
+      // a.download = response.body.name;
+      // a.click();
+      // window.URL.revokeObjectURL(url);
+
+      // const blob = new Blob([response.body], {type: 'application/*'});
+      // const url = window.URL.createObjectURL(blob);
+      // window.open(url)
+
+      // const size = response.body?.size
+      // console.log(size)
+      // // console.log(response.url);
+      // const blob = new Blob(size, { type: 'application/*' });
+      // const url = window.URL.createObjectURL(blob);
+      // window.open(url);
+
+    // })
   }
 
   cancel() {
