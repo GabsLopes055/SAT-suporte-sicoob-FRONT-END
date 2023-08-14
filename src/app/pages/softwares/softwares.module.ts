@@ -13,7 +13,7 @@ import { CreateSoftwaresComponent } from './create-softwares/create-softwares.co
 import { EditSoftwaresComponent } from './edit-softwares/edit-softwares.component';
 import { ListSoftwaresComponent } from './list-softwares/list-softwares.component';
 import { SoftwaresRoutingModule } from './softwares-routing.module';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { SoftwaresRoutingModule } from './softwares-routing.module';
     ReactiveFormsModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressBarModule
   ]
 })
 export class SoftwaresModule { }

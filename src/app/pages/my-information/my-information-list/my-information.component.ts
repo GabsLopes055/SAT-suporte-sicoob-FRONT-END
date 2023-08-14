@@ -21,7 +21,7 @@ export class MyInformationComponent {
 
 
   user!: User;
-
+  isLoading: boolean = true;
   formPassword!: FormGroup;
 
   // id = this.user.cdUser
@@ -29,8 +29,6 @@ export class MyInformationComponent {
   ngOnInit() {
     this.listMyInformation();
     this.createForm();
-    console.log(this.formPassword.value)
-    console.log()
   }
 
   createForm(): FormGroup {
@@ -44,6 +42,7 @@ export class MyInformationComponent {
   listMyInformation() {
     return this.myInformation.listUserByUserName().subscribe(user => {
       this.user = user
+      this.isLoading = false
     })
   }
 

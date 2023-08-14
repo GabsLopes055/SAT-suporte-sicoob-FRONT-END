@@ -16,6 +16,8 @@
         </div> -->
     </div>
     <mat-divider></mat-divider>
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
 
     <div class="container">
 
@@ -36,10 +38,8 @@
                     </mat-card-header>
                     <mat-divider></mat-divider>
                     <mat-card-footer>
-
                         <a><button mat-raised-button color="accent"
                                 (click)="downloadFile(manual.id, manual.docName)">Baixar</button></a>
-
                     </mat-card-footer>
                 </mat-card>
 

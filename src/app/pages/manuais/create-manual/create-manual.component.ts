@@ -14,9 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class CreateManualComponent {
 
   formCreate!: FormGroup;
-
   category!: category[];
-
+  isLoading: boolean = true;
   selectedFile: any = null;
 
 
@@ -33,6 +32,7 @@ export class CreateManualComponent {
   listCategory() {
     return this.serviceCategory.listAllCategory().subscribe(category => {
       this.category = category
+      this.isLoading = false
     })
   }
 
@@ -52,7 +52,7 @@ export class CreateManualComponent {
     if (this.selectedFile == null) {
       this.serviceManual.showMessage("Preencha o formulário corretamente !")
     } else {
-      // console.log(this.selectedFile.file[0])
+      console.log(this.selectedFile)
       this.serviceManual.createNewManual(this.selectedFile, this.formCreate.controls['cdCategory'].value).subscribe(() => {
         this.serviceManual.showMessage('Manual Cadastrado !')
         this.dialog.closeAll()

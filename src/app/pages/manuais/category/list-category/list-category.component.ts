@@ -15,7 +15,7 @@ import { CreateCategoryComponent } from '../create-category/create-category.comp
 export class ListCategoryComponent {
 
   listCategory!: category[];
-
+  isLoading: boolean = true;
   row: String[] = ['cdCategory', 'category', 'edit', 'delete'];
 
   constructor(
@@ -31,6 +31,7 @@ export class ListCategoryComponent {
   public listAllCategory() {
     this.category.listAllCategory().subscribe(response => {
       this.listCategory = response
+      this.isLoading = false
     })
   }
 
@@ -58,8 +59,8 @@ export class ListCategoryComponent {
   // modal = this.dialogCategory.afterClosed().subscribe(() => {
   //   alert('teste')
   // })
-  
 
-  
+
+
 
 }

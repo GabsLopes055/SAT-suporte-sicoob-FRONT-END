@@ -14,7 +14,7 @@ import { ViewSMSComponent } from '../view-sms/view-sms.component';
 export class SendSMSComponent {
 
   indices: string[] = ['cdSMS', 'username', 'phone', 'view']
-
+  isLoading: boolean = true;
   sms!: sms[];
 
   constructor(
@@ -36,6 +36,7 @@ export class SendSMSComponent {
   listAllSms(): any {
     this.service.listAllSms().subscribe((response) => {
       this.sms = response;
+      this.isLoading = false
     })
   }
 

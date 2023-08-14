@@ -7,6 +7,7 @@ import { manual } from 'src/app/interfaces/manuals.model';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { CreateManualComponent } from '../create-manual/create-manual.component';
 import { ListCategoryComponent } from '../category/list-category/list-category.component';
+import { CreateCategoryComponent } from '../category/create-category/create-category.component';
 
 @Component({
   selector: 'app-list-manuais',
@@ -17,6 +18,7 @@ export class ListManuaisComponent {
 
   listCategory!: category[] | any;
   listManuals!: manual[];
+  isLoading: boolean = true;
 
   constructor(
     private location: Location,
@@ -26,8 +28,6 @@ export class ListManuaisComponent {
   ) { }
 
   ngOnInit(): void {
-
-    this.listAllManuals()
     this.listAllCategory()
 
   }
@@ -35,13 +35,7 @@ export class ListManuaisComponent {
   public listAllCategory() {
     this.serviceCategory.listAllCategory().subscribe(response => {
       this.listCategory = response
-      console.log(this.listCategory)
-    })
-  }
-
-  public listAllManuals() {
-    this.service.listAllManuals().subscribe(response => {
-      this.listManuals = response
+      this.isLoading = false
     })
   }
 
@@ -52,7 +46,7 @@ export class ListManuaisComponent {
     })
   }
 
-  model = this.dialog.afterAllClosed.subscribe(() => {
+  modal = this.dialog.afterAllClosed.subscribe(() => {
     this.listAllCategory()
   })
 
@@ -63,46 +57,23 @@ export class ListManuaisComponent {
     })
   }
 
-  downloadFile(manual: manual) {
-    console.log(manual.id)
-    
-    const cdManual = manual.id
+  downloadFile(cdManual: number, docName: string) {
 
-    console.log(cdManual)
+    this.service.downloadFile(cdManual).subscribe(response => {
 
-    // this.service.downloadFile(cdManual).subscribe(response => {
+      const blob = new Blob([response], { type: `${response.type}` })
 
-    //   // console.log(response)
-    //   const data = response.body
+      // Criando um link temporário para fazer o download do arquivo
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
 
-      // const blob = new Blob(data, { type: docType }); // Cria um blob a partir dos bytes recebidos
-      // const link = document.createElement('a');
-      // link.href = window.URL.createObjectURL(blob);
-      // link.download = docName;
-      // link.click(); // Clique simulado no link para iniciar o download
+      // Configurando o cabeçalho Content-Disposition para definir o nome do arquivo, docName é o nome do arquivo quando é baixado
+      link.setAttribute('download', docName);
 
-      // const a = document.createElement('a');
-      // document.body.appendChild(a);
-      // const json = JSON.stringify(response.body),
-      //   blob = new Blob([json], { type: response.body.type }),
-      //   url = window.URL.createObjectURL(blob);
-      // a.href = url;
-      // a.download = response.body.name;
-      // a.click();
-      // window.URL.revokeObjectURL(url);
+      // Clicando no link para iniciar o download
+      link.click();
 
-      // const blob = new Blob([response.body], {type: 'application/*'});
-      // const url = window.URL.createObjectURL(blob);
-      // window.open(url)
-
-      // const size = response.body?.size
-      // console.log(size)
-      // // console.log(response.url);
-      // const blob = new Blob(size, { type: 'application/*' });
-      // const url = window.URL.createObjectURL(blob);
-      // window.open(url);
-
-    // })
+    })
   }
 
   cancel() {

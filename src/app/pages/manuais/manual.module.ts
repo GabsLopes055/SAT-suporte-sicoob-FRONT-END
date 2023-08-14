@@ -17,6 +17,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './category/delete-category/delete-category.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
     MatOptionModule,
     MatSelectModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule
   ]
 })
 export class ManualModule { }

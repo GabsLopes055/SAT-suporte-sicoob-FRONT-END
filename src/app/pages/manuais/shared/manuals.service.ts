@@ -48,10 +48,23 @@ export class ManualsService {
 
     // const manual: [File, number] = [formData, cdCategory]
 
+    console.log(formData)
+
     return this.http.post<manual>(this.url + '/manual', formData).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
     )
+  }
+
+
+  public downloadFile(cdManual: number): Observable<Blob> {
+
+    return this.http.get<Blob>(this.url + "/manual/downloadManual/" + cdManual, { responseType: 'blob' as 'json' }).pipe(
+
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
   }
 
 }

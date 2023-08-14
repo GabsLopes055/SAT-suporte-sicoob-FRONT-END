@@ -20,7 +20,7 @@ export class UsersComponent {
 
 
   indices: string[] = ['cdUser', 'name', 'username', 'email', 'status', 'edit', 'delete'];
-
+  isLoading: boolean = true;
   users!: User[];
 
   ngOnInit(): void {
@@ -63,6 +63,7 @@ export class UsersComponent {
   listAllUsers(): any {
     this.service.listAllUsers().subscribe((response) => {
       this.users = response;
+      this.isLoading = false
     })
   }
 

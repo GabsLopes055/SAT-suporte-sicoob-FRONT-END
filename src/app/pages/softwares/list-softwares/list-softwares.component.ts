@@ -14,6 +14,7 @@ import { CategoryOfManualsService } from '../../manuais/shared/category-of-manua
 export class ListSoftwaresComponent {
 
   softwares!: software[]
+  isLoading: boolean = true;
 
   constructor(
     private dialog: MatDialog,
@@ -36,6 +37,7 @@ export class ListSoftwaresComponent {
   listAllSoftwares(): any {
     this.service.listAllSoftware().subscribe((response) => {
       this.softwares = response
+      this.isLoading = false
     })
   }
 
