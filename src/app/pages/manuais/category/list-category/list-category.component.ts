@@ -20,8 +20,7 @@ export class ListCategoryComponent {
 
   constructor(
     private category: CategoryOfManualsService,
-    private dialog: MatDialog,
-    private dialogCategory: MatDialogRef<CreateCategoryComponent>
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -58,11 +57,6 @@ export class ListCategoryComponent {
       height: 'auto'
     })
   }
-
-  // modal = this.dialogCategory.afterClosed().subscribe(() => {
-  //   alert('teste')
-  // })
-
 
 
 

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CategoryOfManualsService } from '../../shared/category-of-manuals.service';
+import { ListCategoryComponent } from '../list-category/list-category.component';
 
 @Component({
   selector: 'app-delete-category',
@@ -22,12 +23,9 @@ export class DeleteCategoryComponent {
   }
 
   deleteCategory() {
-    this.service.deleteCategory(this.cdCategory.cdCategory).subscribe((response) => {
-      this.dialog.ngOnDestroy()
-      this.service.showMessage(response)
-    })
+    this.service.deleteCategory(this.cdCategory.cdCategory).subscribe(() => {})
+    this.dialog.closeAll()
+    this.service.showMessage("Categoria Deletada !")
   }
-
-
 
 }
