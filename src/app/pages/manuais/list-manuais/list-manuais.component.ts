@@ -8,6 +8,7 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
 import { CreateManualComponent } from '../create-manual/create-manual.component';
 import { ListCategoryComponent } from '../category/list-category/list-category.component';
 import { CreateCategoryComponent } from '../category/create-category/create-category.component';
+import { EditManualComponent } from '../edit-manual/edit-manual.component';
 
 @Component({
   selector: 'app-list-manuais',
@@ -52,6 +53,13 @@ export class ListManuaisComponent {
 
   listCategories() {
     this.dialog.open(ListCategoryComponent, {
+      width: '50%',
+      height: '90%'
+    })
+  }
+
+  editManual(manual: manual) {
+    this.dialog.open(EditManualComponent, {
       width: '50%',
       height: '90%'
     })

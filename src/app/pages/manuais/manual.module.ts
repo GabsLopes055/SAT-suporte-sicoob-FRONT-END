@@ -18,6 +18,7 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
 import { DeleteCategoryComponent } from './category/delete-category/delete-category.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { EditManualComponent } from './edit-manual/edit-manual.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ListCategoryComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    EditManualComponent
   ],
   imports: [
     CommonModule,
