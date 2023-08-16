@@ -22,7 +22,7 @@
 
 table {
     overflow-y: auto;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
 }
 
 th,

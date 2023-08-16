@@ -34,16 +34,19 @@ export class ListCategoryComponent {
     })
   }
 
-  editCategory() {
+  editCategory(category: category) {
     this.dialog.open(EditCategoryComponent, {
-      width: '50%',
-      height: 'auto'
+      width: '40%',
+      height: 'auto',
+      data: {
+        category: category
+      }
     })
   }
 
   deleteCategory(cdCategory: number) {
     this.dialog.open(DeleteCategoryComponent, {
-      width: '50%',
+      width: '40%',
       height: 'auto',
       data: {
         cdCategory: cdCategory
@@ -53,7 +56,7 @@ export class ListCategoryComponent {
 
   createCategory() {
     this.dialog.open(CreateCategoryComponent, {
-      width: '50%',
+      width: '40%',
       height: 'auto'
     })
   }

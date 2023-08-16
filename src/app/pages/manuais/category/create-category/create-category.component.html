@@ -22,7 +22,7 @@
         <mat-divider></mat-divider>
         <div class="actions">
             <div mat-dialog-actions align="start">
-                <button mat-raised-button color="primary" (click)="createCategory()">Cadastrar</button>
+                <button mat-raised-button color="primary" [disabled]="!formCreate.valid" (click)="createCategory()">Cadastrar</button>
                 <button mat-button color="warn" mat-dialog-close>Fechar</button>
             </div>
         </div>

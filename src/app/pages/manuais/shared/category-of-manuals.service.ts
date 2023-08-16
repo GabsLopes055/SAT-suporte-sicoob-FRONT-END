@@ -58,4 +58,11 @@ export class CategoryOfManualsService {
     )
   }
 
+  public editCategory(cdCategory: any, category: category): Observable<category> {
+    return this.http.put<category>(environment.baseUrlBackend + "/category/" + cdCategory, category).pipe(
+      map(response => (response)),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
 }
