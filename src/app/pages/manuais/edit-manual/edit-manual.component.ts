@@ -60,15 +60,19 @@ export class EditManualComponent {
 
     if (this.selectedFile == null) {
       this.serviceManual.showMessage("Preencha o formulário corretamente !")
-    } else {
-      // console.log(this.selectedFile)
+    } else {      
       this.isLoading = true
-      alert(this.data.manual.id)
-      // this.serviceManual.createNewManual(this.selectedFile, this.formEdit.controls['cdCategory'].value).subscribe(() => {
-      //   this.serviceManual.showMessage('Manual Cadastrado !'),
-      //   this.dialog.closeAll()
-      // })
+      alert(this.data.manual.id?.toString())
+      this.serviceManual.editManual(this.selectedFile, this.formEdit.controls['cdCategory'].value, this.data.manual.id).subscribe(() => {
+        this.serviceManual.showMessage('Manual Editado !'),
+        this.isLoading = false
+        this.dialog.closeAll()
+      })
     }
+  }
+
+  deleteManual() {
+    alert('deletar')
   }
 
 }

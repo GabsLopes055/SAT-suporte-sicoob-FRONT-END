@@ -56,6 +56,23 @@ export class ManualsService {
     )
   }
 
+  public editManual(file: File, cdCategory: number, fileId: number | undefined): Observable<manual> {
+
+
+    const formData: FormData = new FormData();
+
+    formData.append('file', file, file.name)
+    formData.append('cdCategory', cdCategory.toString())
+
+    // const manual: [File, number] = [formData, cdCategory]
+
+    console.log(formData)
+
+    return this.http.put<manual>(this.url + '/manual/edit/' + fileId, formData).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
 
   public downloadFile(cdManual: number): Observable<Blob> {
 

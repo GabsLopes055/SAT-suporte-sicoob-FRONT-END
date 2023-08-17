@@ -1,6 +1,6 @@
 <div class="container">
     <div class="content">
-        <h1>Cadastrar Manual</h1>
+        <h1>Editar Manual</h1>
         <h6>* Preencha o formulário corretamente. </h6>
 
         <mat-divider></mat-divider>
@@ -35,6 +35,11 @@
                 <div mat-dialog-actions align="start">
                     <button mat-raised-button color="accent" (click)="sendManual()">Editar</button>
                     <button mat-button color="warn" mat-dialog-close>Fechar</button>
+                </div>
+                <div mat-dialog-actions align="end">
+                    <button mat-icon-button color="warn" (click)="deleteManual()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </div>
             </div>
         </form>
