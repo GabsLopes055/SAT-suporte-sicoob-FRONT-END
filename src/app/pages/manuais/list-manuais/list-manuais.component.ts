@@ -61,7 +61,10 @@ export class ListManuaisComponent {
   editManual(manual: manual) {
     this.dialog.open(EditManualComponent, {
       width: '50%',
-      height: '90%'
+      height: 'auto',
+      data: {
+        manual: manual
+      }
     })
   }
 
