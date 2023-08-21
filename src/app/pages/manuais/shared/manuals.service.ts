@@ -84,4 +84,11 @@ export class ManualsService {
 
   }
 
+  public deleteManual(fileId: number | undefined) : Observable<any> {
+    return this.http.delete(this.url + "/manual/" + fileId, {responseType: 'text'}).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
 }

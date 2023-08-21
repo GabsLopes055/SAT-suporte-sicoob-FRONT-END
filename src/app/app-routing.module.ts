@@ -16,7 +16,8 @@ const routes: Routes = [
       { path: 'my-informations', loadChildren: () => import('./../app/pages/my-information/my-information.module').then(module => module.MyInformationModule) },
       { path: 'users', loadChildren: () => import('./../app/pages/users/user.module').then(module => module.UserModule) },
       { path: 'softwares', loadChildren: () => import('./../app/pages/softwares/softwares.module').then(module => module.SoftwaresModule) },
-      {path: 'manuais', loadChildren: () => import('./pages/manuais/manual.module').then(module => module.ManualModule)}
+      { path: 'manuais', loadChildren: () => import('./pages/manuais/manual.module').then(module => module.ManualModule) },
+      { path: 'informations', loadChildren: () => import('./pages/informations/informatios.module').then(module => module.InformatiosModule) }
     ]
   },
   { path: '**', redirectTo: "" }
