@@ -43,6 +43,10 @@ button {
     align-items: center;
 }
 
+mat-card-content{
+    padding: 30px 30px;
+}
+
 .cardInformation {
     justify-content: center;
     text-align: center;

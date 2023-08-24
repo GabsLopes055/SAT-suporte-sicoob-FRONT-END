@@ -3,7 +3,7 @@
 
         <div class="title">
             <h1>Informativos</h1>
-            <button mat-icon-button matTooltip="Adicionar Informativos"><i class="material-icons">add</i></button>
+            <button mat-icon-button matTooltip="Adicionar Informativos" (click)="createNewInformation()"><i class="material-icons">add</i></button>
         </div>
     </div>
     <h6>* Este é o nosso mural de informações. Nele você ficará por dentro de todas as notícias mais importantes
@@ -14,27 +14,15 @@
 
     <div class="container">
 
-
         <mat-card class="cardInformation" *ngFor="let information of informations">
             <mat-card-title>
-                <h3>{{information.title}}</h3>
+                <h2>{{information.title}}</h2>
             </mat-card-title>
             <mat-divider></mat-divider>
             <mat-card-content>{{information.description}}</mat-card-content>
             <mat-divider></mat-divider>
-            <mat-card-footer><button mat-raised-button color="accent">Ver</button></mat-card-footer>
+            <mat-card-footer><button mat-raised-button color="accent">Ler mais</button></mat-card-footer>
         </mat-card>
-
-        <!-- <div class="containerManual" *ngFor="let information of informations">
-
-            <div style="background-color: aquamarine;">
-            {{information.title}}
-        </div> -->
-
-
-
-        <!-- </div> -->
-
 
     </div>
 

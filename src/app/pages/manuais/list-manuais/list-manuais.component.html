@@ -43,7 +43,7 @@
                 <mat-card class="cardManuals" *ngFor="let manual of categories.manual">
                     <mat-card-header>
                         <mat-card-title (click)="editManual(manual)">
-                            {{manual.docName}}
+                            <h3>{{manual.docName}}</h3>
                         </mat-card-title>
                     </mat-card-header>
                     <mat-divider></mat-divider>
