@@ -1,9 +1,9 @@
 export interface information {
     cdInform?: number,
-    title?: string,
-    description?: string,
     content?: string,
+    data?: any[],
+    description?: string,
     docName?: string,
     docType?: string,
-    data?: any[]
+    title?: string,
 }

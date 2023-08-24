@@ -17,7 +17,8 @@
 
 h1,
 h2,
-h3 {
+h3,
+h6 {
     font-family: 'Roboto Mono';
 }
 
@@ -41,3 +42,13 @@ button {
     justify-content: space-between;
     align-items: center;
 }
+
+.cardInformation {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    margin: 15px 5px 15px 5px;
+    width: 49%;
+}
+

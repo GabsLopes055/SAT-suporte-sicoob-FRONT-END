@@ -29,11 +29,8 @@ export class InformationService {
     return EMPTY
   }
 
-  public listAllInformations(): Observable<information> {
-    return this.http.get<information>(this.url + "/informatio").pipe(
-      map(response => response),
-      catchError((e) => this.errorHandler(e))
-    )
+  public listAllInformations(): Observable<information[]> {
+    return this.http.get<information[]>(this.url + "/information")
   }
 
 }

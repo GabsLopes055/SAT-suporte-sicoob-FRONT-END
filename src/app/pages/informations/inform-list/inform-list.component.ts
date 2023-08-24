@@ -11,15 +11,20 @@ export class InformListComponent {
 
   isLoading: boolean = true;
 
-  listInformations!: information;
+  informations!: information[];
 
-  constructor(private service: InformationService){
-    console.log(this.listInformations)
+  constructor(private service: InformationService) {}
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.listAllInformations()
   }
 
-  public listAllInformations(){
-    this.service.listAllInformations().subscribe(response => {
-      response = this.listInformations;
+  public listAllInformations() {
+    return this.service.listAllInformations().subscribe(response => {
+      this.informations = response
+      this.isLoading = false
     })
   }
 

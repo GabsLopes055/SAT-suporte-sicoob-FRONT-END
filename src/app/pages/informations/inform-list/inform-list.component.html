@@ -5,13 +5,35 @@
             <h1>Informativos</h1>
             <button mat-icon-button matTooltip="Adicionar Informativos"><i class="material-icons">add</i></button>
         </div>
-
     </div>
+    <h6>* Este é o nosso mural de informações. Nele você ficará por dentro de todas as notícias mais importantes
+        provenientes do Suporte Help Desk - Data Center</h6>
     <mat-divider></mat-divider>
     <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 
 
     <div class="container">
+
+
+        <mat-card class="cardInformation" *ngFor="let information of informations">
+            <mat-card-title>
+                <h3>{{information.title}}</h3>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>{{information.description}}</mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-footer><button mat-raised-button color="accent">Ver</button></mat-card-footer>
+        </mat-card>
+
+        <!-- <div class="containerManual" *ngFor="let information of informations">
+
+            <div style="background-color: aquamarine;">
+            {{information.title}}
+        </div> -->
+
+
+
+        <!-- </div> -->
 
 
     </div>
