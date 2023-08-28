@@ -2,9 +2,10 @@
     margin: 2%;
     padding: 30px;
     height: 93%;
-    font-family: 'Roboto Mono';
+    display: flex;
     overflow-y: auto;
 }
+
 
 .title {
     display: flex;
@@ -23,8 +24,8 @@ h6 {
 }
 
 .container {
-    width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -47,12 +48,16 @@ mat-card-content{
     padding: 30px 30px;
 }
 
+mat-card-subtitle {
+    margin-top: 20px;
+}
+
 .cardInformation {
     justify-content: center;
     text-align: center;
-    align-items: center;
     padding: 15px;
-    margin: 15px 5px 15px 5px;
+    margin: 15px 1px 15px 0px;
     width: 49%;
+    height: auto;
 }
 

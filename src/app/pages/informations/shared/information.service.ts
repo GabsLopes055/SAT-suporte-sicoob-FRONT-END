@@ -25,12 +25,33 @@ export class InformationService {
   }
 
   public errorHandler(e: any): Observable<any> {
-    this.showMessage(e);
+    this.showMessage(e.error.message);
+    console.log(e)
     return EMPTY
   }
 
   public listAllInformations(): Observable<information[]> {
     return this.http.get<information[]>(this.url + "/information")
+  }
+
+  public createNewInformation(file: File, title: string, description: string, content: string): Observable<information> {
+
+    const formData: FormData = new FormData();
+
+    if(file) {
+      formData.append('file', file, file.name)
+    }
+    
+    formData.append('title', title.toString())
+    formData.append('description', description.toString())
+    formData.append('content', content.toString())
+
+
+    return this.http.post<information>(this.url + "/information", formData).pipe(
+      map( response => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
   }
 
 }

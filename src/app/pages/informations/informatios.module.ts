@@ -16,12 +16,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { InformCreateComponent } from './inform-create/inform-create.component';
+import { ViewInformationComponent } from './view-information/view-information.component';
 
 
 @NgModule({
   declarations: [
     InformListComponent,
-    InformCreateComponent
+    InformCreateComponent,
+    ViewInformationComponent
   ],
   imports: [
     CommonModule,

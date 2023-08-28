@@ -15,15 +15,14 @@
     <div class="container">
 
         <mat-card class="cardInformation" *ngFor="let information of informations">
-            <mat-card-title>
-                <h2>{{information.title}}</h2>
-            </mat-card-title>
+            <mat-card-content>
+                <mat-card-title>{{information.title}}</mat-card-title>
+                <mat-card-subtitle>{{information.description}}</mat-card-subtitle>
+            </mat-card-content>
             <mat-divider></mat-divider>
-            <mat-card-content>{{information.description}}</mat-card-content>
-            <mat-divider></mat-divider>
-            <mat-card-footer><button mat-raised-button color="accent">Ler mais</button></mat-card-footer>
+            <mat-card-footer><button mat-raised-button color="accent" (click)="viewInformation()">Ler mais</button></mat-card-footer>
         </mat-card>
 
     </div>
-
+    
 </mat-card>

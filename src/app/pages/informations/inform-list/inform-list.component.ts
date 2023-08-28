@@ -3,6 +3,7 @@ import { information } from 'src/app/interfaces/information.model';
 import { InformationService } from '../shared/information.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InformCreateComponent } from '../inform-create/inform-create.component';
+import { ViewInformationComponent } from '../view-information/view-information.component';
 
 @Component({
   selector: 'app-inform-list',
@@ -15,7 +16,7 @@ export class InformListComponent {
 
   informations!: information[];
 
-  constructor(private service: InformationService, private dialog: MatDialog) {}
+  constructor(private service: InformationService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -36,6 +37,17 @@ export class InformListComponent {
       height: "auto"
     })
   }
+
+  viewInformation() {
+    this.dialog.open(ViewInformationComponent, {
+      width: "50%",
+      height: "auto"
+    })
+  }
+
+  modal = this.dialog.afterAllClosed.subscribe(() => {
+    this.listAllInformations();
+  })
 
 
 }
