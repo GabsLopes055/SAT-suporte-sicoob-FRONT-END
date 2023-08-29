@@ -38,17 +38,26 @@ export class InformationService {
 
     const formData: FormData = new FormData();
 
-    if(file) {
+    if (file) {
       formData.append('file', file, file.name)
     }
-    
+
     formData.append('title', title.toString())
     formData.append('description', description.toString())
     formData.append('content', content.toString())
 
 
     return this.http.post<information>(this.url + "/information", formData).pipe(
-      map( response => response),
+      map(response => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
+  public findInformation(cdInform: any): Observable<any> {
+
+    return this.http.get<any>(this.url + "/information/" + cdInform).pipe(
+      map((response) => response),
       catchError((e) => this.errorHandler(e))
     )
 

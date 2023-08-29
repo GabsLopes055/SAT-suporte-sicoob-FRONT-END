@@ -38,10 +38,13 @@ export class InformListComponent {
     })
   }
 
-  viewInformation() {
+  viewInformation(cdInform: any) {
     this.dialog.open(ViewInformationComponent, {
       width: "50%",
-      height: "auto"
+      height: "auto",
+      data: {
+        cdInform
+      }
     })
   }
 

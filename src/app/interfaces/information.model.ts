@@ -1,7 +1,7 @@
 export interface information {
     cdInform?: number,
     content?: string,
-    data?: any[],
+    data?: string,
     description?: string,
     docName?: string,
     docType?: string,
