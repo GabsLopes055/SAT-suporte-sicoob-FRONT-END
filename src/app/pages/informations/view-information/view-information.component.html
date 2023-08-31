@@ -1,15 +1,16 @@
 <div class="container">
     <div class="content">
+
         <h1>{{information?.title}}</h1>
         <h6>* {{information?.description}}</h6>
+
         <mat-divider></mat-divider>
-        
-            <h3 > {{information?.data}}</h3>
 
-            <div class="imageInformation">
+        <h3> {{information?.content}}</h3>
 
-                <img *ngIf="information.data" src="information.data" alt="não foi possível abrir">
-            </div>
+        <div class="imageInformation" *ngIf="information.data">
+            <img src="data:image/gif;base64,{{information.data}}" alt="não foi possível abrir">
+        </div>
 
         <mat-divider></mat-divider>
 

@@ -40,7 +40,7 @@ export class InformListComponent {
 
   viewInformation(cdInform: any) {
     this.dialog.open(ViewInformationComponent, {
-      width: "50%",
+      width: "100%",
       height: "auto",
       data: {
         cdInform
