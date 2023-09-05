@@ -48,6 +48,10 @@ mat-card-content{
     padding: 30px 30px;
 }
 
+mat-card-title {
+    cursor: pointer;
+}
+
 mat-card-subtitle {
     margin-top: 20px;
 }

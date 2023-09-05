@@ -4,6 +4,7 @@ import { InformationService } from '../shared/information.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InformCreateComponent } from '../inform-create/inform-create.component';
 import { ViewInformationComponent } from '../view-information/view-information.component';
+import { InformEditComponent } from '../inform-edit/inform-edit.component';
 
 @Component({
   selector: 'app-inform-list',
@@ -48,6 +49,16 @@ export class InformListComponent {
     })
   }
 
+  editInformation(cdInform: any) {
+    this.dialog.open(InformEditComponent, {
+      width: "50%",
+      height: "auto",
+      data: {
+        cdInform
+      }
+    })
+  }
+ 
   modal = this.dialog.afterAllClosed.subscribe(() => {
     this.listAllInformations();
   })
