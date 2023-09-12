@@ -13,8 +13,8 @@ export class UserServiceService {
   constructor(private http: HttpClient, private message: MatSnackBar) { }
 
   showMessage(msg: string, color: string): void {
-    this.message.open(msg, "X", {
-      duration: 8000,
+    this.message.open(msg, "", {
+      duration: 5000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: color

@@ -14,8 +14,8 @@ export class LoginService {
   constructor(private message: MatSnackBar, private http: HttpClient) { }
 
   showMessage(msg: string, color: string) {
-    this.message.open(msg, "X", {
-      duration: 800000,
+    this.message.open(msg, "", {
+      duration: 5000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: color

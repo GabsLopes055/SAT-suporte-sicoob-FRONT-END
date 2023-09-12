@@ -17,8 +17,8 @@ export class InformationService {
     private message: MatSnackBar) { }
 
   public showMessage(msg: string, color: string) {
-    return this.message.open(msg, "X", {
-      duration: 8000,
+    return this.message.open(msg, "", {
+      duration: 5000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: color

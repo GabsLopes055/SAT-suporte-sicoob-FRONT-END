@@ -28,7 +28,7 @@ body {
 }
 
 .success {
-    --mdc-snackbar-container-color: var(--success-color);
+    --mdc-snackbar-container-color: var(--primary-color);
 }
 
 .error {

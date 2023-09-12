@@ -13,7 +13,7 @@ export class SmsServiceService {
   constructor(private http: HttpClient, private message: MatSnackBar) { }
 
   showMessage(msg: string, color: string): void {
-    this.message.open(msg, "X", {
+    this.message.open(msg, "", {
       duration: 5000,
       horizontalPosition: "right",
       verticalPosition: "top",
