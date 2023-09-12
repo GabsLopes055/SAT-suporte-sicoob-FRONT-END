@@ -23,13 +23,13 @@ export class AuthGuard implements CanActivate {
 
             if (expirationDate < currentDate) {
                 this.route.navigate(['/']);
-                this.loginService.showMessage('Sessão expirada. Por favor refaça o login.')
+                this.loginService.showMessage('Sessão expirada. Por favor refaça o login.', "primary")
             }
         }
 
         if (token === null || expirationDate === null) {
             this.route.navigate(['/']);
-            this.loginService.showMessage('Por favor, refaça o login.')
+            this.loginService.showMessage('Por favor, refaça o login.', "primary")
         }
 
         return true;

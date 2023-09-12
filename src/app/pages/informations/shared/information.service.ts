@@ -16,16 +16,17 @@ export class InformationService {
     private http: HttpClient,
     private message: MatSnackBar) { }
 
-  public showMessage(msg: string) {
+  public showMessage(msg: string, color: string) {
     return this.message.open(msg, "X", {
       duration: 8000,
       horizontalPosition: "right",
       verticalPosition: "top",
+      panelClass: color
     })
   }
 
   public errorHandler(e: any): Observable<any> {
-    this.showMessage(e.error.message);
+    this.showMessage(e.error.message, "error");
     console.log(e)
     return EMPTY
   }

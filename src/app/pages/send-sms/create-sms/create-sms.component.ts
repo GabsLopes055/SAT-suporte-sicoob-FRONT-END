@@ -54,7 +54,7 @@ export class CreateSmsComponent {
   sendsms() {
     this.textSMS()
     this.service.sendSMS(this.formGroup.value).subscribe(() => {
-      this.service.showMessage('SMS Enviado ! Não se esqueça de resetar a senha deste usuário no AD !')
+      this.service.showMessage('SMS Enviado ! Não se esqueça de resetar a senha deste usuário no AD !', "success")
       this.dialog.closeAll();
     })
 
@@ -73,7 +73,7 @@ export class CreateSmsComponent {
     } else if (this.selected == 'ambos') {
       this.formGroup.controls['textsms'].setValue('senha para ambos dominios: ' + this.formGroup.controls['password'].value)
     } else {
-      this.service.showMessage('Preencha o formulário corretamente !')
+      this.service.showMessage('Preencha o formulário corretamente !', "secondary")
     }
   }
 

@@ -31,7 +31,7 @@ export class CreateSoftwaresComponent {
     console.log(this.formGroup.value)
     this.service.createNewSoftware(this.formGroup.value).subscribe(() => {
       this.dialog.closeAll();
-      this.service.showMessage('Software Cadastrado !')
+      this.service.showMessage('Software Cadastrado !', "success")
     })
   }
 

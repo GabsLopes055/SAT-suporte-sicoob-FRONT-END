@@ -59,12 +59,12 @@ export class EditManualComponent {
   sendManual() {
 
     if (this.selectedFile == null) {
-      this.serviceManual.showMessage("Preencha o formulário corretamente !")
+      this.serviceManual.showMessage("Preencha o formulário corretamente !", "secondary")
     } else {
       this.isLoading = true
       alert(this.data.manual.id?.toString())
       this.serviceManual.editManual(this.selectedFile, this.formEdit.controls['cdCategory'].value, this.data.manual.id).subscribe(() => {
-        this.serviceManual.showMessage('Manual Editado !'),
+        this.serviceManual.showMessage('Manual Editado !', "warning"),
           this.isLoading = false
         this.dialog.closeAll()
       })
@@ -73,7 +73,7 @@ export class EditManualComponent {
 
   deleteManual() {
     this.serviceManual.deleteManual(this.data.manual.id).subscribe(response => { })
-    this.serviceManual.showMessage('Manual Excluido !')
+    this.serviceManual.showMessage('Manual Excluido !', "error")
     this.dialog.closeAll()
   }
 

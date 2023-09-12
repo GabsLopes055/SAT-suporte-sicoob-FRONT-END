@@ -32,7 +32,7 @@ export class CreateCategoryComponent {
 
   createCategory() {
     this.service.createCategory(this.formCreate.value).subscribe(response => {
-      this.service.showMessage('Categoria Cadastrada');
+      this.service.showMessage('Categoria Cadastrada', "success");
       this.dialog.closeAll()
     })
   }

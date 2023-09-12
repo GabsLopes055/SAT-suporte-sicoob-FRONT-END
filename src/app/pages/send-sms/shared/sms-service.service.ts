@@ -12,25 +12,20 @@ export class SmsServiceService {
 
   constructor(private http: HttpClient, private message: MatSnackBar) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, color: string): void {
     this.message.open(msg, "X", {
       duration: 5000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      panelClass: ['blue-snackbar']
+      panelClass: color
     });
   }
 
-  // else if (e.status == 401) {
-  //   this.showMessage("Usuário Desativado. Peça para um de nossos administradores permitir a sua entrada.")
-  // } else if (e.status == 404) {
-  //   this.showMessage("Usuário não encontrado.")
-
   errorHandler(e: any): Observable<any> {
     if (e.status == 400) {
-      this.showMessage('Preencha o formulário corretamente !')
+      this.showMessage('Preencha o formulário corretamente !', "secondary")
     } else if (e.status == 500) {
-      this.showMessage("Erro interno do servidor.")
+      this.showMessage("Erro interno do servidor.", "error")
     }
     // console.log()
     return EMPTY;

@@ -32,7 +32,7 @@ export class RegisterComponent {
 
   createNewUser() {
     this.service.createdNewUser(this.formGroup.value).subscribe(() => {
-      this.service.showMessage('Usuário Cadastrado. Aguarde um de nossos técnicos aprovar sua entrada !')
+      this.service.showMessage('Usuário Cadastrado. Aguarde um de nossos técnicos aprovar sua entrada !', "primary")
       this.dialog.closeAll();
     })
   }

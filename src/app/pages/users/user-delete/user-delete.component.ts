@@ -17,7 +17,7 @@ export class UserDeleteComponent {
 
   deleteUser() {
     this.service.deleteUser(this.data.idUser).subscribe((response) => {})
-    this.service.showMessage('Usuário Deletado !')
+    this.service.showMessage('Usuário Deletado !', "error")
     this.model.close();
   }
 

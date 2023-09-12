@@ -45,7 +45,7 @@ export class InformCreateComponent {
       this.formCreate.controls['content'].value,
     ).subscribe(() => {
 
-      this.service.showMessage('Informativo Cadastrado')
+      this.service.showMessage('Informativo Cadastrado', "success")
       this.dialog.closeAll();
     })
   }

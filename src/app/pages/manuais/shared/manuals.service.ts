@@ -17,17 +17,17 @@ export class ManualsService {
     private message: MatSnackBar
   ) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, color: string): void {
     this.message.open(msg, "X", {
       duration: 8000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      // panelClass: isError ? ['.msg-error'] : ['.msg-success'],
+      panelClass: color
     });
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage(e.message)
+    this.showMessage(e.message, "error")
     return EMPTY;
   }
 

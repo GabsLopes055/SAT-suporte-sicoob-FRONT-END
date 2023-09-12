@@ -37,7 +37,7 @@ export class EditCategoryComponent {
 
   editCategory() {
     this.service.editCategory(this.category.category.cdCategory, this.formEdit.value).subscribe(() => {})
-    this.service.showMessage("Categoria Editada !");
+    this.service.showMessage("Categoria Editada !", "warning");
     this.dialog.closeAll()
   }
 

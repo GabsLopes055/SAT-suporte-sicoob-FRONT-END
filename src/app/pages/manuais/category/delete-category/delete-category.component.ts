@@ -25,7 +25,7 @@ export class DeleteCategoryComponent {
   deleteCategory() {
     this.service.deleteCategory(this.cdCategory.cdCategory).subscribe(() => {})
     this.dialog.closeAll()
-    this.service.showMessage("Categoria Deletada !")
+    this.service.showMessage("Categoria Deletada !", "error")
   }
 
 }

@@ -12,17 +12,17 @@ export class LoginServiceRegister {
 
   constructor(private httpClient: HttpClient, private message: MatSnackBar) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, color: string) {
     this.message.open(msg, "X", {
       duration: 8000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      panelClass: ['blue-snackbar']
-    });
+      panelClass: color
+    })
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage(e.error['error'])
+    this.showMessage(e.error['error'], "error")
     // console.log()
     return EMPTY;
   }

@@ -50,11 +50,11 @@ export class CreateManualComponent {
   sendManual() {
 
     if (this.selectedFile == null) {
-      this.serviceManual.showMessage("Preencha o formulário corretamente !")
+      this.serviceManual.showMessage("Preencha o formulário corretamente !", "secondary")
     } else {
       console.log(this.selectedFile)
       this.serviceManual.createNewManual(this.selectedFile, this.formCreate.controls['cdCategory'].value).subscribe(() => {
-        this.serviceManual.showMessage('Manual Cadastrado !')
+        this.serviceManual.showMessage('Manual Cadastrado !', "success")
         this.dialog.closeAll()
       })
     }

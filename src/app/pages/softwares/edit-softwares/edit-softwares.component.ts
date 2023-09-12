@@ -33,14 +33,14 @@ export class EditSoftwaresComponent {
 
   editSoftware() {
     this.service.editSoftware(this.formGroup.value).subscribe(response => {
-      this.service.showMessage('Software Editado !')
+      this.service.showMessage('Software Editado !', "warning")
       this.dialog.closeAll()
     })
   }
 
   excluirSoftware() {
     this.service.deleteSoftware(this.formGroup.controls['cdsoftware'].value).subscribe(response => { })
-    this.service.showMessage('Software Deletado !')
+    this.service.showMessage('Software Deletado !', "error")
     this.dialog.closeAll()
   }
 

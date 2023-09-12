@@ -11,6 +11,7 @@ import { User } from 'src/app/interfaces/user.model';
 })
 export class UserEditComponent {
 
+  formGroup!: FormGroup;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -20,7 +21,6 @@ export class UserEditComponent {
     this.formGroup = this.createFormEdit();
   }
 
-  formGroup!: FormGroup;
 
   public isFormControlInvalid(controlName: string): boolean {
     return !!(this.formGroup.get(controlName)?.invalid && this.formGroup.get(controlName)?.touched)
@@ -41,7 +41,7 @@ export class UserEditComponent {
   editUser() {
     return this.service.edituser(this.formGroup.value).subscribe((response) => {
       this.dialog.closeAll()
-      this.service.showMessage('Usuário Editado !')
+      this.service.showMessage('Usuário Editado !', "warning")
     })
   }
 

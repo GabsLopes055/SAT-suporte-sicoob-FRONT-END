@@ -31,7 +31,7 @@ export class ResetPasswordComponent {
 
   resetPassword() {
     this.service.resetPasswordByUser(this.formPassword.value).subscribe(() => {
-      this.service.showMessage('Senha Resetada !')
+      this.service.showMessage('Senha Resetada !', "success")
       this.dialog.closeAll();
     })
   }

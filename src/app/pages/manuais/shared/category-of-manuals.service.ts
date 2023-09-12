@@ -17,21 +17,22 @@ export class CategoryOfManualsService {
     private message: MatSnackBar
   ) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, color: string): void {
     this.message.open(msg, "X", {
       duration: 8000,
       horizontalPosition: "right",
       verticalPosition: "top",
+      panelClass: color
     });
   }
 
   errorHandler(e: any): Observable<any> {
     if (e.status == 400) {
-      this.showMessage("Erro ao excluir categoria !")
+      this.showMessage("Erro ao excluir categoria !", "error")
     } else if (e.status == 404) {
-      this.showMessage("Categoria não encontrada !")
+      this.showMessage("Categoria não encontrada !", "warning")
     } else if (e.status == 500) {
-      this.showMessage("Erro interno do servidor !")
+      this.showMessage("Erro interno do servidor !", "error")
     }
     // console.log()
     return EMPTY;
