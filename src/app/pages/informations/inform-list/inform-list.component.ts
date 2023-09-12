@@ -49,12 +49,12 @@ export class InformListComponent {
     })
   }
 
-  editInformation(cdInform: any) {
+  editInformation(information: information) {
     this.dialog.open(InformEditComponent, {
       width: "50%",
       height: "auto",
       data: {
-        cdInform
+        information
       }
     })
   }

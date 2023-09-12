@@ -16,7 +16,7 @@
 
         <mat-card class="cardInformation" *ngFor="let information of informations">
             <mat-card-content>
-                <mat-card-title (click)="editInformation(information.cdInform)" >{{information.title}}</mat-card-title>
+                <mat-card-title (click)="editInformation(information)" >{{information.title}}</mat-card-title>
                 <mat-card-subtitle>{{information.description}}</mat-card-subtitle>
             </mat-card-content>
             <mat-divider></mat-divider>

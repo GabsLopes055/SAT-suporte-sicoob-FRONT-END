@@ -46,10 +46,6 @@ export class ManualsService {
     formData.append('file', file, file.name)
     formData.append('cdCategory', cdCategory.toString())
 
-    // const manual: [File, number] = [formData, cdCategory]
-
-    console.log(formData)
-
     return this.http.post<manual>(this.url + '/manual', formData).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
@@ -66,7 +62,6 @@ export class ManualsService {
 
     // const manual: [File, number] = [formData, cdCategory]
 
-    console.log(formData)
 
     return this.http.put<manual>(this.url + '/manual/edit/' + fileId, formData).pipe(
       map((response) => response),

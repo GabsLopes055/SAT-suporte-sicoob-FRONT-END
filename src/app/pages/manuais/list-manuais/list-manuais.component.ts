@@ -30,7 +30,6 @@ export class ListManuaisComponent {
 
   ngOnInit(): void {
     this.listAllCategory()
-    console.log(this.listCategory)
   }
 
   public listAllCategory() {

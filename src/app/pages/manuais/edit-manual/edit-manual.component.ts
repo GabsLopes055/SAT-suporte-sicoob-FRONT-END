@@ -30,6 +30,8 @@ export class EditManualComponent {
     @Inject(MAT_DIALOG_DATA) private data: { manual: manual }
   ) {
 
+    console.log(this.data)
+
     this.formEdit = this.createForm();
     this.listCategory();
 
@@ -59,10 +61,9 @@ export class EditManualComponent {
   sendManual() {
 
     if (this.selectedFile == null) {
-      this.serviceManual.showMessage("Preencha o formulário corretamente !", "secondary")
+      this.serviceManual.showMessage("Selecione ao menos um arquivo", "secondary")
     } else {
-      this.isLoading = true
-      alert(this.data.manual.id?.toString())
+      this.isLoading = true      
       this.serviceManual.editManual(this.selectedFile, this.formEdit.controls['cdCategory'].value, this.data.manual.id).subscribe(() => {
         this.serviceManual.showMessage('Manual Editado !', "warning"),
           this.isLoading = false

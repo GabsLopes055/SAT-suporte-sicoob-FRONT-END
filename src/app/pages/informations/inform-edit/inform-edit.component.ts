@@ -14,33 +14,31 @@ export class InformEditComponent {
   isLoading: boolean = true
   formCreate!: FormGroup;
   selectedFile: any = null;
-  informEdit!: information;
+  docName: any = ''
+
 
   constructor(
     private formBuilder: FormBuilder,
     private service: InformationService,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) private data: {cdInform: number}
+    @Inject(MAT_DIALOG_DATA) private data: { information: information }
   ) {
     this.isLoading = false
     this.formCreate = this.createForm()
   }
 
   ngOnInit() {
-
-    this.service.findInformation(this.data.cdInform).subscribe((response) => {
-      this.informEdit = response
-    })
-    console.log(this.informEdit)
+    this.docName = this.data.information.docName
+    
   }
 
 
-  public createForm(): FormGroup {
+  public createForm() {
     return this.formBuilder.group({
-      content: [this.informEdit?.content, Validators.required],
-      description: [this.informEdit?.description, Validators.required],
-      title: [this.informEdit?.title, Validators.required],
-      file: ['']
+      content: [this.data.information.content, Validators.required],
+      description: [this.data.information.description, Validators.required],
+      title: [this.data.information.title, Validators.required],
+      file: ['', Validators.required]
     })
   }
 
@@ -50,7 +48,11 @@ export class InformEditComponent {
     this.isLoading = false
   }
 
-  public EditInformation() {
-    alert('Criar logica para editar')
+  EditInformation() {
+    this.service.showMessage("Criar logica para editar", "secondary")
+  }
+
+  deleteManual() {
+    
   }
 }
