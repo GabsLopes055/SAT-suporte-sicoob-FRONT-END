@@ -53,6 +53,8 @@ export class InformEditComponent {
   }
 
   deleteManual() {
-    
+    this.service.deleteInformation(this.data.information.cdInform).subscribe((response) => {}) 
+    this.service.showMessage("Informativo Deletado", "error")
+    this.dialog.closeAll()
   }
 }

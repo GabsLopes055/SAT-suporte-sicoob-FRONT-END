@@ -64,4 +64,15 @@ export class InformationService {
 
   }
 
+  public deleteInformation(cdInform: any): Observable<boolean> {
+
+    return this.http.delete<number>(this.url + "/information/" + cdInform).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
+
+
 }
