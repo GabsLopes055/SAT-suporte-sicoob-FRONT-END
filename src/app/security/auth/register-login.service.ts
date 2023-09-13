@@ -22,8 +22,7 @@ export class LoginServiceRegister {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage(e.error['error'], "error")
-    // console.log()
+    this.showMessage(e.error['error'], "error")    
     return EMPTY;
   }
 

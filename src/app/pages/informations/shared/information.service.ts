@@ -26,8 +26,7 @@ export class InformationService {
   }
 
   public errorHandler(e: any): Observable<any> {
-    this.showMessage(e.error.message, "error");
-    console.log(e)
+    this.showMessage(e.error.message, "error");    
     return EMPTY
   }
 
@@ -68,6 +67,34 @@ export class InformationService {
 
     return this.http.delete<number>(this.url + "/information/" + cdInform).pipe(
       map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
+  public editInformation(
+    file: File,
+    docData: Blob,
+    docName: any,
+    title: any,
+    description: any,
+    content: any,
+    cdInform: any): Observable<information> {
+
+    let formData: FormData = new FormData();
+
+    if (file) {
+      formData.append('file', file, file.name)
+    } else {
+      formData.append('file', docData, docName)
+    }
+
+    formData.append('title', title)
+    formData.append('description', description)
+    formData.append('content', content)
+
+    return this.http.put<information>(this.url + "/information/" + cdInform, formData).pipe(
+      map((response) => { response }),
       catchError((e) => this.errorHandler(e))
     )
 

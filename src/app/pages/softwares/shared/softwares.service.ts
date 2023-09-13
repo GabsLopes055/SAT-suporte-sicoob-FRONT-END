@@ -28,7 +28,6 @@ export class SoftwaresService {
 
   errorHandler(e: any): Observable<any> {
     this.showMessage(e.message, "error")
-    // console.log()
     return EMPTY;
   }
 

@@ -25,8 +25,7 @@ export class UsersComponent {
 
   ngOnInit(): void {
 
-    this.listAllUsers();
-    console.log(this.users)
+    this.listAllUsers();    
   }
 
   dialog = this.model.afterAllClosed.subscribe(() => {

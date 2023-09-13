@@ -11,11 +11,9 @@ export class ViewSMSComponent {
 
   sms: sms = this.data.sms
 
-  constructor(    
+  constructor(
     @Inject(MAT_DIALOG_DATA) private data: { sms: sms }
-  ) { 
-    console.log(this.sms)
-  }
+  ) { }
 
 
 }

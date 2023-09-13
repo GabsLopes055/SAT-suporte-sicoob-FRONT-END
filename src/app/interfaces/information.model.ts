@@ -5,5 +5,5 @@ export interface information {
     content?: string,
     docName?: string,
     docType?: string,
-    data?: any[],
+    data?: any,
 }

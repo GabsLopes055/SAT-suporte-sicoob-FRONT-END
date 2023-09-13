@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, RequiredValidator, Validators } from '@angular/forms';
-import { LoginServiceRegister } from './Register-login.service';
+import { LoginServiceRegister } from '../auth/register-login.service';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

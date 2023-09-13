@@ -12,7 +12,7 @@ import { information } from 'src/app/interfaces/information.model';
 export class InformEditComponent {
 
   isLoading: boolean = true
-  formCreate!: FormGroup;
+  formEdit!: FormGroup;
   selectedFile: any = null;
   docName: any = ''
 
@@ -24,12 +24,11 @@ export class InformEditComponent {
     @Inject(MAT_DIALOG_DATA) private data: { information: information }
   ) {
     this.isLoading = false
-    this.formCreate = this.createForm()
+    this.formEdit = this.createForm()
   }
 
   ngOnInit() {
     this.docName = this.data.information.docName
-    
   }
 
 
@@ -49,12 +48,56 @@ export class InformEditComponent {
   }
 
   EditInformation() {
-    this.service.showMessage("Criar logica para editar", "secondary")
+
+    //esta condicional é para validar quando o usuário passar um novo arquivo de informativo ou permanece o mesmo
+
+    if (this.selectedFile) {
+
+      this.service.editInformation(
+        this.selectedFile,
+        this.data.information.data,
+        this.data.information.docName,
+        this.formEdit.controls['title'].value,
+        this.formEdit.controls['description'].value,
+        this.formEdit.controls['content'].value,
+        this.data.information.cdInform).subscribe(() => { })
+      this.dialog.closeAll()
+      this.service.showMessage("Informativo Editado", "warning")
+
+    } else {
+
+      // Converte a string base64 para bytes
+      const byteCharacters = atob(this.data.information.data);
+
+      // Converte os bytes em um array buffer
+      const arrayBuffer = new ArrayBuffer(byteCharacters.length);
+      const uint8Array = new Uint8Array(arrayBuffer);
+
+      for (let i = 0; i < byteCharacters.length; i++) {
+        uint8Array[i] = byteCharacters.charCodeAt(i);
+      }
+
+      // Cria o Blob a partir do array buffer
+      const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+
+      this.service.editInformation(
+        this.selectedFile,
+        blob,
+        this.data.information.docName,
+        this.formEdit.controls['title'].value,
+        this.formEdit.controls['description'].value,
+        this.formEdit.controls['content'].value,
+        this.data.information.cdInform).subscribe(() => { })
+      this.dialog.closeAll()
+      this.service.showMessage("Informativo Editado", "warning")
+    }
+
   }
 
   deleteManual() {
-    this.service.deleteInformation(this.data.information.cdInform).subscribe((response) => {}) 
+    this.service.deleteInformation(this.data.information.cdInform).subscribe((response) => { })
     this.service.showMessage("Informativo Deletado", "error")
     this.dialog.closeAll()
   }
+
 }

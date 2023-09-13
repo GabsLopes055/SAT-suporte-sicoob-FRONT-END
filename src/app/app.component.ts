@@ -10,28 +10,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  // constructor(
-  //   public dialog: MatDialog
-  // ) { }
-
-  // title = 'project-sat';
-
-  // ngOnInit(): void {
-
-  // }
-
-  // public register() {    
-  //   this.dialog.open(RegisterComponent, {
-  //     width: "80%",
-  //     height: "80%"
-  //   })
-  // }
-
-  // public resetPassword(){
-  //   this.dialog.open(ResetPasswordComponent, {
-  //     width: "80%",
-  //     height: "80%"
-  //   })
-  // }
-
 }

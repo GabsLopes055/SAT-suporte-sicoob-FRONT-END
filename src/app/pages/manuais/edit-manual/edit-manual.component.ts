@@ -30,11 +30,9 @@ export class EditManualComponent {
     @Inject(MAT_DIALOG_DATA) private data: { manual: manual }
   ) {
 
-    console.log(this.data)
 
     this.formEdit = this.createForm();
     this.listCategory();
-
     this.docName = this.data.manual.docName
     this.categoryEdit = this.data.manual.category
     this.editCategory = this.categoryEdit.cdCategory
@@ -60,11 +58,33 @@ export class EditManualComponent {
 
   sendManual() {
 
-    if (this.selectedFile == null) {
-      this.serviceManual.showMessage("Selecione ao menos um arquivo", "secondary")
+
+    if (this.selectedFile) {
+      this.isLoading = true
+      this.serviceManual.editManual(this.selectedFile, this.data.manual.docName, this.data.manual.data, this.formEdit.controls['cdCategory'].value, this.data.manual.id).subscribe(() => {
+        this.serviceManual.showMessage('Manual Editado !', "warning"),
+          this.isLoading = false
+        this.dialog.closeAll()
+      })
     } else {
-      this.isLoading = true      
-      this.serviceManual.editManual(this.selectedFile, this.formEdit.controls['cdCategory'].value, this.data.manual.id).subscribe(() => {
+
+
+      // Converte a string base64 para bytes
+      const byteCharacters = atob(this.data.manual.data);
+
+      // Converte os bytes em um array buffer
+      const arrayBuffer = new ArrayBuffer(byteCharacters.length);
+      const uint8Array = new Uint8Array(arrayBuffer);
+
+      for (let i = 0; i < byteCharacters.length; i++) {
+        uint8Array[i] = byteCharacters.charCodeAt(i);
+      }
+
+      // Cria o Blob a partir do array buffer
+      const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+
+      this.isLoading = true
+      this.serviceManual.editManual(this.selectedFile, this.data.manual.docName, blob, this.formEdit.controls['cdCategory'].value, this.data.manual.id).subscribe(() => {
         this.serviceManual.showMessage('Manual Editado !', "warning"),
           this.isLoading = false
         this.dialog.closeAll()

@@ -52,16 +52,17 @@ export class ManualsService {
     )
   }
 
-  public editManual(file: File, cdCategory: number, fileId: number | undefined): Observable<manual> {
-
+  public editManual(file: File, docName: any, docData: Blob, cdCategory: number, fileId: number | undefined): Observable<manual> {
 
     const formData: FormData = new FormData();
 
-    formData.append('file', file, file.name)
-    formData.append('cdCategory', cdCategory.toString())
-
-    // const manual: [File, number] = [formData, cdCategory]
-
+    if (file) {
+      formData.append('file', file, file.name)
+      formData.append('cdCategory', cdCategory.toString())
+    } else {
+      formData.append('file', docData, docName)
+      formData.append('cdCategory', cdCategory.toString())
+    }
 
     return this.http.put<manual>(this.url + '/manual/edit/' + fileId, formData).pipe(
       map((response) => response),
@@ -79,8 +80,8 @@ export class ManualsService {
 
   }
 
-  public deleteManual(fileId: number | undefined) : Observable<any> {
-    return this.http.delete(this.url + "/manual/" + fileId, {responseType: 'text'}).pipe(
+  public deleteManual(fileId: number | undefined): Observable<any> {
+    return this.http.delete(this.url + "/manual/" + fileId, { responseType: 'text' }).pipe(
       map((response) => response),
       catchError((e) => this.errorHandler(e))
     )

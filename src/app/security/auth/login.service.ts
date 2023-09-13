@@ -31,8 +31,7 @@ export class LoginService {
       this.showMessage("Usuário não encontrado.","error")
     } else if (e.status == 500) {
       this.showMessage("Erro interno do servidor.", "error")
-    }
-    // console.log()
+    }    
     return EMPTY;
   }
 
