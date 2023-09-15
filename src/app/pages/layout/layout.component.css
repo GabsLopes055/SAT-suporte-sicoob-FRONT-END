@@ -6,6 +6,7 @@
 
 mat-drawer {
     align-items: center;
+     /* background-color: #1CA295; */
     /* width: 10%; */
 }
 
@@ -30,11 +31,6 @@ mat-icon {
     padding-right: 7px;
 }
 
-/* p {
-
-    display: none;
-} */
-
 mat-nav-list {
     display: flex;
     flex-direction: column;
@@ -55,8 +51,9 @@ img {
 
 @media (max-width: 1024px) {
     mat-drawer {
-        /* align-items: center; */
+        align-items: center;
         width: 10%;
+        height: auto;
     }
 
     img {
@@ -66,4 +63,5 @@ img {
     p {
         display: none;
     }
+
 }

@@ -17,7 +17,8 @@ const routes: Routes = [
       { path: 'users', loadChildren: () => import('./../app/pages/users/user.module').then(module => module.UserModule) },
       { path: 'softwares', loadChildren: () => import('./../app/pages/softwares/softwares.module').then(module => module.SoftwaresModule) },
       { path: 'manuais', loadChildren: () => import('./pages/manuais/manual.module').then(module => module.ManualModule) },
-      { path: 'informations', loadChildren: () => import('./pages/informations/informatios.module').then(module => module.InformatiosModule) }
+      { path: 'informations', loadChildren: () => import('./pages/informations/informatios.module').then(module => module.InformatiosModule) },
+      { path: 'automations', loadChildren: () => import('./pages/automations/automations.module').then(module => module.AutomationsModule) }
     ]
   },
   { path: '**', redirectTo: "" }
