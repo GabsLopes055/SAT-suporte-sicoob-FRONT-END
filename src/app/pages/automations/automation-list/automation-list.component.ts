@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { automation } from 'src/app/interfaces/automations.model';
+import { AutomationServiceService } from '../shared/automation-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AutomationCreatedComponent } from '../automation-created/automation-created.component';
 
 @Component({
   selector: 'app-automation-list',
@@ -8,9 +12,20 @@ import { Component } from '@angular/core';
 export class AutomationListComponent {
 
   isLoading: boolean = true
+  listAutomation: automation[] = []
 
-  constructor() {
+  constructor(private service:AutomationServiceService, private dialog: MatDialog) {
     this.isLoading = false
+    this.service.listAllAutomations().subscribe((response) => {
+      this.listAutomation = response
+    })
+  } 
+
+  createdAutomation(): void {
+    this.dialog.open(AutomationCreatedComponent, {
+      width: '50%',
+      height: 'auto'
+    })
   }
 
 }

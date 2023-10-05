@@ -29,6 +29,15 @@ h6 {
     flex-wrap: wrap;
 }
 
+.cardAutomation {
+    padding: 15px;
+    margin: 15px;
+    width: 20%;
+    height: auto;
+    text-align: center;
+    align-items: center;
+}
+
 
 button {
     margin-top: 15px;

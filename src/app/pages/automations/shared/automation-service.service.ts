@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable, catchError, map } from 'rxjs';
 import { automation } from 'src/app/interfaces/automations.model';
 import { environment } from 'src/environments/environment.development';
 
@@ -14,9 +14,26 @@ export class AutomationServiceService {
 
   constructor(private http: HttpClient, private message: MatSnackBar) { }
 
-  // listAllAutomations(): Observable<automation[]> {
-  //   return this.http.get
-  // }
+  showMessage(message:string, color: string) {
+    this.message.open(message, "", {
+      duration: 5000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: color
+    })
+  }
+
+  errorHandler(e: any): Observable<any> {
+    this.showMessage(e.message, "error")
+    return EMPTY;
+  }
+
+  listAllAutomations(): Observable<automation[]> {
+    return this.http.get<automation[]>(this.url + "/automation").pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
   
 
 

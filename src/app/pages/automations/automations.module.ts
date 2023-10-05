@@ -8,10 +8,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AutomationCreatedComponent } from './automation-created/automation-created.component';
 
 @NgModule({
   declarations: [
-    AutomationListComponent
+    AutomationListComponent,
+    AutomationCreatedComponent
   ],
   imports: [
     CommonModule,
