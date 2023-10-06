@@ -16,10 +16,20 @@ export class AutomationListComponent {
 
   constructor(private service:AutomationServiceService, private dialog: MatDialog) {
     this.isLoading = false
+    this.listAllAutomation()
+  } 
+
+  modal = this.dialog.afterAllClosed.subscribe(() => {
+    this.listAllAutomation()
+  })
+
+  listAllAutomation(): void {
     this.service.listAllAutomations().subscribe((response) => {
       this.listAutomation = response
     })
-  } 
+  }
+
+  
 
   createdAutomation(): void {
     this.dialog.open(AutomationCreatedComponent, {
@@ -27,5 +37,8 @@ export class AutomationListComponent {
       height: 'auto'
     })
   }
+
+  
+  
 
 }

@@ -24,8 +24,8 @@ h6 {
 }
 
 .container {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -57,11 +57,13 @@ mat-card-subtitle {
 }
 
 .cardInformation {
-    justify-content: center;
-    text-align: center;
+    flex-grow: 1;
+    flex-basis: 200;
     padding: 15px;
-    margin: 15px 1px 15px 0px;
-    width: 49%;
+    margin: 15px;
+    width: 20%;
     height: auto;
+    text-align: center;
+    align-items: center;
 }
 

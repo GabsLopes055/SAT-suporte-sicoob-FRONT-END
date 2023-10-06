@@ -1,1 +1,32 @@
-<p>automation-created works!</p>
+<div class="container">
+    <div class="content">
+        <h1>Cadastrar Arquivo</h1>
+        <h6>* Preencha o formulário corretamente. </h6>
+
+        <mat-divider></mat-divider>
+        <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+        <form [formGroup]="createForm" enctype="multipart/form-data">
+
+            <mat-form-field appearance="outline" required>
+                <mat-label>Selecione o Arquivo</mat-label>
+                <button mat-icon-button matPrefix (click)="fileInput.click()">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+                <input type="text" readonly matInput value="{{selectedFile?.name}}" required/>
+                <input type="file" multiple hidden #fileInput (change)="onFileSelected($event)"
+                    formControlName="file" />
+                <mat-error disabled="!valid.error">O campo é obrigatório</mat-error>
+            </mat-form-field>           
+
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+                <div mat-dialog-actions align="start">
+                    <button mat-raised-button color="primary" (click)="createdAutomation()">Salvar</button>
+                    <button mat-button color="warn" mat-dialog-close>Fechar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

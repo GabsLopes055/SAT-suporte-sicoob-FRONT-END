@@ -14,7 +14,7 @@ export class AutomationServiceService {
 
   constructor(private http: HttpClient, private message: MatSnackBar) { }
 
-  showMessage(message:string, color: string) {
+  showMessage(message: string, color: string) {
     this.message.open(message, "", {
       duration: 5000,
       horizontalPosition: 'right',
@@ -34,7 +34,19 @@ export class AutomationServiceService {
       catchError((e) => this.errorHandler(e))
     )
   }
-  
+
+  saveAutomation(file: File): Observable<automation> {
+
+    const formData: FormData = new FormData();
+
+    formData.append('file', file, file.name)
+
+    return this.http.post<automation>(this.url + '/automation', formData).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
 
 
 }

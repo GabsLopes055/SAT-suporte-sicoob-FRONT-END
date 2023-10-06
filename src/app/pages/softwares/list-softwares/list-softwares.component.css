@@ -26,11 +26,12 @@ h6 {
 .container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .cardSoftwares {
+    flex-grow: 1;
+    flex-basis: 200;
     padding: 15px;
     margin: 15px;
     width: 20%;
