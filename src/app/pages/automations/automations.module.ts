@@ -14,11 +14,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteAutomationComponent } from './delete-automation/delete-automation.component';
 
 @NgModule({
   declarations: [
     AutomationListComponent,
-    AutomationCreatedComponent
+    AutomationCreatedComponent,
+    DeleteAutomationComponent
   ],
   imports: [
     CommonModule,

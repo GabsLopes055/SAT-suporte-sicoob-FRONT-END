@@ -47,6 +47,16 @@ export class AutomationServiceService {
     )
   }
 
+  public downloadFile(cdAutomation: number): Observable<Blob> {
+
+    return this.http.get<Blob>(this.url + "/automation/downloadAutomation/" + cdAutomation, { responseType: 'blob' as 'json' }).pipe(
+
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+
+  }
+
 
 
 }

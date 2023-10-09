@@ -49,3 +49,6 @@ mat-divider {
     margin-top: 5px;
 }
 
+mat-card-title {
+    cursor: pointer;
+}

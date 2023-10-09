@@ -12,13 +12,14 @@
 
         <mat-card class="cardAutomation" *ngFor="let automation of listAutomation">
             <mat-card-header>
-                <mat-card-title>
+                <mat-card-title (click)="deleteAutomation(automation.id)">
                     {{ automation.docName }}
                 </mat-card-title>
             </mat-card-header>
-            <mat-card-footer>
             <mat-divider></mat-divider>
-                <button mat-raised-button color="accent">Baixar</button>
+            <mat-card-footer>
+                <button mat-raised-button color="accent"
+                    (click)="downloadFile(automation.id, automation.docName)">Baixar</button>
             </mat-card-footer>
         </mat-card>
     </div>

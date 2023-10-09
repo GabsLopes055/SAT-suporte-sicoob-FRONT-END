@@ -14,10 +14,10 @@ export class AutomationListComponent {
   isLoading: boolean = true
   listAutomation: automation[] = []
 
-  constructor(private service:AutomationServiceService, private dialog: MatDialog) {
+  constructor(private service: AutomationServiceService, private dialog: MatDialog) {
     this.isLoading = false
     this.listAllAutomation()
-  } 
+  }
 
   modal = this.dialog.afterAllClosed.subscribe(() => {
     this.listAllAutomation()
@@ -29,8 +29,6 @@ export class AutomationListComponent {
     })
   }
 
-  
-
   createdAutomation(): void {
     this.dialog.open(AutomationCreatedComponent, {
       width: '50%',
@@ -38,7 +36,30 @@ export class AutomationListComponent {
     })
   }
 
-  
-  
+  downloadFile(cdAutomation: number | any, docName: string | any) {
+
+
+    this.service.downloadFile(cdAutomation).subscribe(response => {
+
+      const blob = new Blob([response], { type: `${response.type}` })
+
+      // Criando um link temporário para fazer o download do arquivo
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+
+      // Configurando o cabeçalho Content-Disposition para definir o nome do arquivo, docName é o nome do arquivo quando é baixado
+      link.setAttribute('download', docName);
+
+      // Clicando no link para iniciar o download
+      link.click();
+
+    })
+  }
+
+  deleteAutomation(id: number | any) {
+    alert(id)
+  }
+
+
 
 }
