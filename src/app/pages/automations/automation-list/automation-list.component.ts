@@ -3,6 +3,7 @@ import { automation } from 'src/app/interfaces/automations.model';
 import { AutomationServiceService } from '../shared/automation-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AutomationCreatedComponent } from '../automation-created/automation-created.component';
+import { DeleteAutomationComponent } from '../delete-automation/delete-automation.component';
 
 @Component({
   selector: 'app-automation-list',
@@ -57,7 +58,11 @@ export class AutomationListComponent {
   }
 
   deleteAutomation(id: number | any) {
-    alert(id)
+    this.dialog.open(DeleteAutomationComponent, {
+      width: '50%',
+      height: 'auto',
+      data: id
+    })
   }
 
 

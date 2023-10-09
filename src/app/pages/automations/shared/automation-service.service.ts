@@ -57,6 +57,12 @@ export class AutomationServiceService {
 
   }
 
+  public deleteAutomationById(cdAutomation: number | any): Observable<any> {
+    return this.http.delete(this.url + "/automation/" + cdAutomation).pipe(
+      map((response) => response)
+    )
+  }
+
 
 
 }
