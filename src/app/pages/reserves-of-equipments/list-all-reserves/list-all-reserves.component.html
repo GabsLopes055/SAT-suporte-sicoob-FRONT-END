@@ -1,1 +1,18 @@
-<p>list-all-reserves works!</p>
+<mat-card class="content">
+    <div class="title">
+        <h1>Reservas de Equipamentos</h1>
+        <button mat-icon-button matTooltip="Reservar Equipamento" (click)="createReserve()"><i
+                class="material-icons">add</i></button>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+    <div class="main">
+
+        <table mat-table class="table">
+
+        </table>
+
+    </div>
+
+</mat-card>
