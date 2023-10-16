@@ -9,7 +9,40 @@
 
     <div class="main">
 
-        <table mat-table class="table">
+        <table mat-table class="table" [dataSource]="reserves">
+
+            <tr mat-header-row *matHeaderRowDef="indices"></tr>
+            <tr mat-row *matRowDef="let row; columns: indices;"></tr>
+
+            <ng-container matColumnDef="cdReserve">
+                <th mat-header-cell *matHeaderCellDef matTooltip="Código da Reserva"> No. </th>
+                <td mat-cell *matCellDef="let row"> {{row.cdReserve}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nameUser">
+                <th mat-header-cell *matHeaderCellDef matTooltip="Nome do Usuário"> Nome do Usuário </th>
+                <td mat-cell *matCellDef="let row"> {{row.nameUser}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nameEquipment">
+                <th mat-header-cell *matHeaderCellDef matTooltip="Nome do Equipamento"> Nome do Equipamento </th>
+                <td mat-cell *matCellDef="let row"> {{row.nameEquipment}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateOfRemove">
+                <th mat-header-cell *matHeaderCellDef matTooltip="Data de Retirada"> Data de Retirada </th>
+                <td mat-cell *matCellDef="let row"> {{row.dateOfRemove | date : 'dd/MM/yyyy HH:mm'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateOfAdd">
+                <th mat-header-cell *matHeaderCellDef matTooltip="Data de Entrega"> Data de Entrega </th>
+                <td mat-cell *matCellDef="let row"> {{row.dateOfAdd | date : 'dd/MM/yyyy HH:mm'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef matTooltip="Status"> Status </th>
+                <td mat-cell *matCellDef="let row"> <button mat-icon-button><mat-icon>close</mat-icon></button> </td>
+            </ng-container>
 
         </table>
 
