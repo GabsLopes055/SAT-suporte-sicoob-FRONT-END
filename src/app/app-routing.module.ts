@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { AuthGuard } from './security/auth/AuthGuard.guard';
 import { LoginComponent } from './security/login/login.component';
+import { ReservesOfEquipmentsModule } from './pages/reserves-of-equipments/reserves-of-equipments.module';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'softwares', loadChildren: () => import('./../app/pages/softwares/softwares.module').then(module => module.SoftwaresModule) },
       { path: 'manuais', loadChildren: () => import('./pages/manuais/manual.module').then(module => module.ManualModule) },
       { path: 'informations', loadChildren: () => import('./pages/informations/informatios.module').then(module => module.InformatiosModule) },
-      { path: 'automations', loadChildren: () => import('./pages/automations/automations.module').then(module => module.AutomationsModule) }
+      { path: 'automations', loadChildren: () => import('./pages/automations/automations.module').then(module => module.AutomationsModule) },
+      { path: 'reserveOfEquipments', loadChildren: () => import('./pages/reserves-of-equipments/reserves-of-equipments.module').then(module => module.ReservesOfEquipmentsModule) }
     ]
   },
   { path: '**', redirectTo: "" }
