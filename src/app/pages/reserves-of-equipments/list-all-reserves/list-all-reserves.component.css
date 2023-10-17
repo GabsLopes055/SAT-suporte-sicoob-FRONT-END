@@ -26,6 +26,7 @@ td {
     text-align: center;
     font-family: 'Roboto Mono';
 }
-/* mat-form-field {
-    padding-top: 5px;
-} */
+
+.color {
+    color: #f44336;
+}

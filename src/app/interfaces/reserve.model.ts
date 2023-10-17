@@ -4,5 +4,5 @@ export interface reserve{
     nameEquipment: string,
     dateOfRemove: Date,
     dateOfAdd: Date | null,
-    status: string
+    status: boolean
 }

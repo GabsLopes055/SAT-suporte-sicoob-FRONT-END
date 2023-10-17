@@ -13,9 +13,15 @@ export class ListAllReservesComponent {
 
   isLoading: boolean = true;
 
+  reserved: string = '';
+
+  iconEquipment: string = '';
+
   reserves!: reserve[];
 
-  indices: string[] = ['cdReserve', 'nameUser', 'nameEquipment', 'dateOfRemove', 'dateOfAdd', 'status'];
+  event: any = null;
+
+  indices: string[] = ['cdReserve', 'nameUser', 'nameEquipment', 'dateOfRemove', 'dateOfAdd', 'status', 'goBack'];
 
   constructor(
     private dialog: MatDialog,
@@ -28,15 +34,33 @@ export class ListAllReservesComponent {
     this.isLoading = false
     this.service.listAllReserve().subscribe((response) =>{
       this.reserves = response
-      console.log(this.reserves)
     })
   }
 
   createReserve() {
     this.dialog.open(CreateReserveComponent, {
-      width: "80%",
+      width: "50%",
       height: "auto"
     })
   }
+
+  getStatusReserve(status: boolean): string {
+    if(status) {
+      this.reserved = "Não Entregue"
+    } else {
+      this.reserved = "Entregue"
+    }
+    return "retorno de uma função que eu não sei porque tem que retornar e não sei onde vai ser usado !"
+  }
+
+  goBackEquipment(status: boolean): string {
+    if(status) {
+      this.iconEquipment = "history"
+    } else {
+      this.iconEquipment = "check"
+    }
+    return "retorno de uma função que eu não sei porque tem que retornar e não sei onde vai ser usado !"
+  }
+
 
 }
