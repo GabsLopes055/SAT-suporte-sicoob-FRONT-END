@@ -18,6 +18,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CreateReserveComponent } from './create-reserve/create-reserve.component';
 import { ReceiveEquipmentComponent } from './receive-equipment/receive-equipment.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { ReceiveEquipmentComponent } from './receive-equipment/receive-equipment
     MatPaginatorModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatCardModule
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class ReservesOfEquipmentsModule { }

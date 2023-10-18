@@ -36,6 +36,13 @@ export class ReserveServiceService {
     return EMPTY;
   }
 
+  createReserve(reserve: any): Observable<reserve> {
+    return this.http.post<any>(this.url + "/reserveOfSecondFloor", reserve).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
 
   listAllReserve(): Observable<reserve[]> {
     return this.http.get<reserve[]>(this.url + "/reserveOfSecondFloor").pipe(

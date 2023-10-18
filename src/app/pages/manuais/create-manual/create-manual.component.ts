@@ -27,12 +27,13 @@ export class CreateManualComponent {
   ) {
     this.formCreate = this.createForm();
     this.listCategory();
+    this.isLoading = false
   }
 
   listCategory() {
     return this.serviceCategory.listAllCategory().subscribe(category => {
       this.category = category
-      this.isLoading = false
+      
     })
   }
 
