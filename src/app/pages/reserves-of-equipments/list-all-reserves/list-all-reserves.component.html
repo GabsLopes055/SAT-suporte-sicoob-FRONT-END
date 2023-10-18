@@ -82,7 +82,7 @@
 
             <ng-container matColumnDef="goBack">
                 <th mat-header-cell *matHeaderCellDef matTooltip="Devolver Equipamento"> Ações </th>
-                <td mat-cell *matCellDef="let row" (click)="receiveEquipment(row.cdReserve, row.status)"
+                <td mat-cell *matCellDef="let row" (click)="receiveEquipment(row)"
                     [ngClass]="goBackEquipment(row.status)"> <button
                         mat-icon-button><mat-icon>{{this.iconEquipment}}</mat-icon></button></td>
             </ng-container>

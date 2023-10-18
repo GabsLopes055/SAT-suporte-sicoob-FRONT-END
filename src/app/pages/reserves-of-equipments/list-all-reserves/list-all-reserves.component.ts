@@ -34,6 +34,10 @@ export class ListAllReservesComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.isLoading = false
+    this.listAllReserves()
+  }
+
+  listAllReserves() {
     this.service.listAllReserve().subscribe((response) => {
       this.reserves = response
     })
@@ -64,13 +68,18 @@ export class ListAllReservesComponent {
     return "retorno de uma função que eu não sei porque tem que retornar e não sei onde vai ser usado !"
   }
 
-  receiveEquipment(cdReserve: number, status: boolean) {
-    if (status == true) {
+  receiveEquipment(reserve: reserve) {
+    if (reserve.status == true) {
       this.dialog.open(ReceiveEquipmentComponent, {
         width: "50%",
-        height: "auto"
+        height: "auto",
+        data: { data: reserve }
       })
     }
   }
+
+  modal = this.dialog.afterAllClosed.subscribe(() => {
+    this.listAllReserves()
+  })
 
 }
