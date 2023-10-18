@@ -10,7 +10,7 @@ import { equipments } from 'src/app/interfaces/equipments.model';
 })
 export class CreateReserveComponent {
 
-  isLoading: boolean = false
+  isLoading: boolean = true
 
   equipments!: equipments[]
 

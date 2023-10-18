@@ -44,4 +44,11 @@ export class ReserveServiceService {
     )
   }
 
+  finalizeReservation(cdReserve: number): Observable<reserve> {
+    return this.http.put<reserve>(this.url + "/reserveOfSecondFloor/" + cdReserve, cdReserve).pipe(
+      map((response) => response),
+      catchError((e) => this.errorHandler(e))
+    )
+  }
+
 }

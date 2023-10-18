@@ -17,12 +17,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CreateReserveComponent } from './create-reserve/create-reserve.component';
+import { ReceiveEquipmentComponent } from './receive-equipment/receive-equipment.component';
 
 
 @NgModule({
   declarations: [
     ListAllReservesComponent,
-    CreateReserveComponent
+    CreateReserveComponent,
+    ReceiveEquipmentComponent
   ],
   imports: [
     CommonModule,
