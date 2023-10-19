@@ -16,6 +16,7 @@ export class CreateReserveComponent {
   formCreate!: FormGroup;
   equipments!: equipments[]
 
+  panelOpenState = true;
 
   constructor(
     private dialog: MatDialog,

@@ -12,6 +12,8 @@ export class ReceiveEquipmentComponent {
 
   isLoading: boolean = true
 
+  reserve!: reserve
+
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: { data: reserve },
     private service: ReserveServiceService,
@@ -22,6 +24,8 @@ export class ReceiveEquipmentComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.isLoading = false
+    this.reserve = this.data.data
+    console.log(this.reserve)
   }
 
   receivedEquipment(){

@@ -46,7 +46,7 @@ export class ListAllReservesComponent {
   createReserve() {
     this.dialog.open(CreateReserveComponent, {
       width: "50%",
-      height: "auto"
+      height: "80%"
     })
   }
 

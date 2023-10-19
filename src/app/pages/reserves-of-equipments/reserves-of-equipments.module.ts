@@ -20,7 +20,7 @@ import { CreateReserveComponent } from './create-reserve/create-reserve.componen
 import { ReceiveEquipmentComponent } from './receive-equipment/receive-equipment.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatProgressBarModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ]
 })
 export class ReservesOfEquipmentsModule { }

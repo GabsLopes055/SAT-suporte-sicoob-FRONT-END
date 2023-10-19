@@ -33,3 +33,7 @@ h6 {
     font-family: 'Roboto Mono';
     color: black;
 }
+
+mat-card {
+    padding: 30px;
+}

@@ -6,6 +6,22 @@
         <mat-divider></mat-divider>
         <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 
+        <mat-card>
+            <strong>Equipamento Devolvido:</strong>
+            <br>
+            O Equipamento da sala: {{this.reserve.nameEquipment}}
+            <br>
+            <br>
+            <strong>Condições de Devolução:</strong>
+            <br>
+            Confirmo que estou devolvendo o equipamento nas mesmas condições em que o recebi, com todos os acessórios e
+            componentes originais.
+            <br>
+            O equipamento está em pleno funcionamento, sem danos aparentes.
+        </mat-card>
+
+        <br>
+
         <div class="actions">
             <div mat-dialog-actions align="start">
                 <button mat-raised-button color="warn" (click)="receivedEquipment()">Finalizar Reserva</button>

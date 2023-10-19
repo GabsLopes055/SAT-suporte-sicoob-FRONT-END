@@ -33,3 +33,12 @@ h6 {
     font-family: 'Roboto Mono';
     color: black;
 }
+
+.actions {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+mat-card {
+    padding: 30px;
+}
