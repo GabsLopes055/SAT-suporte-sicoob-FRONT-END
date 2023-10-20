@@ -25,17 +25,73 @@
                 <mat-error disabled="!valid.error">O campo é obrigatório</mat-error>
             </mat-form-field>
 
-            <!-- <mat-accordion>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            
-                        </mat-panel-title>
-                        <mat-panel-description>
-                            Leia o termo de uso
-                        </mat-panel-description>
-                    </mat-expansion-panel-header> -->
-            <mat-card>
+            <div class="termsModal">
+                <div #termsPDF id="termsPDF" class="pdfTerms">
+                    <div class="headerPDF">
+                        <img src="../../../../assets/img/sicoob-logo.png" alt="Não foi possivel carregar" width="20%"
+                            height="20%">
+                        <strong>
+                            <p>Termo de Retirada e Devolução do Equipamento</p>
+                        </strong>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <br>
+
+                    Nome Completo: {{this.formCreate.controls['nameUser'].value}}
+                    <br>
+                    Reserva do Equipamento: {{this.formCreate.controls['nameEquipment'].value}}
+                    <br>
+                    <br>
+                    <p>Declaro para os devidos fins que o equipamento abaixo discriminado pertencente ao Centro
+                        Cooperativo Sicoob, está sendo retirado para utilização no espaço Colab, localizado no 2º andar,
+                        Torre 1 do CCS, Ed. Sede I. Este Termo de Retirada e Devolução é referente ao equipamento de
+                        espelhamento de vídeo para televisões, conhecido como 'BenQ Instashow'. </p>
+                    <strong>
+                        <p>1 - Retirada do Equipamento</p>
+                    </strong>
+                    <p>1.1 O Locatário declara ter recebido o Equipamento em perfeitas condições de funcionamento e sem
+                        danos aparentes.
+                        <br>
+                        1.2 O Locatário é responsável por verificar a integridade do Equipamento no momento da retirada
+                        e
+                        notificar imediatamente sobre qualquer defeito ou dano constatado.
+                    </p>
+
+                    <strong>
+                        <p>2 - Responsabilidades do Locatário</p>
+                    </strong>
+                    2.1 O Locatário concorda em utilizar o Equipamento de forma adequada, seguindo as instruções de uso
+                    fornecidas pelo fabricante.
+                    <br>
+                    2.2 O Locatário assume total responsabilidade pela guarda e
+                    conservação do Equipamento durante o período de utilização.
+                    <br>
+                    2.3 O Locatário não poderá realizar qualquer modificação ou reparo no Equipamento sem autorização
+                    expressa do setor responsável.
+                    <br>
+                    <br>
+                    <strong>
+                        <p>3 - Devolução do Equipamento, Danos e Responsabilidades</p>
+                    </strong>
+                    3.1 O Locatário deve devolver o Equipamento no estado em que foi recebido.
+                    <br>
+                    3.2 A devolução do equipamento deverá ser feita no mesmo local de retirada.
+                    <br>
+                    3.3 O colaborador será responsável por quaisquer danos causados ao equipamento
+                    durante o período de utilização, exceto aqueles decorrentes de desgaste normal ou defeitos de
+                    fabricação.
+                    <br>
+                    <br>
+                    Ao assinar este termo, confirmo ter lido, compreendido e concordado com todas as disposições e
+                    responsabilidades aqui contidas.
+                    <br>
+                    <br>
+                    Data e Hora de Aceitação Digital: {{this.timeAndDate}}
+
+                </div>
+            </div>
+
+            <!-- <mat-card>
                 <strong>Termo de Responsabilidade</strong>
                 <br>
                 Eu declaro para os devidos fins que o equipamento abaixo discriminado pertencente ao Centro
@@ -77,7 +133,7 @@
                 <br>
                 Ao aceitar este termo, confirmo ter lido, compreendido e concordado com todas as disposições e
                 responsabilidades aqui contidas.
-            </mat-card>
+            </mat-card> -->
             <!-- </mat-expansion-panel>
             </mat-accordion> -->
 

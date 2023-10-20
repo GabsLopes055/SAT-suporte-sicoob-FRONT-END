@@ -42,3 +42,30 @@ h6 {
 mat-card {
     padding: 30px;
 }
+
+.pdfTerms {
+    width: 82.5%;
+    margin: 30px;
+    text-align: center;
+}
+
+.headerPDF {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.termsModal {
+    display: flex;
+    justify-content: center;
+}
+
+.pdfTerms,
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+p {
+    width: 100%;
+}
