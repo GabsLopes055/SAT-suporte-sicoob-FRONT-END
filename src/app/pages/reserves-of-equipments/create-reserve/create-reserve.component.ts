@@ -66,13 +66,17 @@ export class CreateReserveComponent {
       this.dialog.closeAll()
       this.serviceReserve.showMessage("Reserva Criada", "success")
 
-      let pdf = new jsPDF('p', 'pt', 'a4');
-      pdf.html(this.elemento.nativeElement, {
-        callback: (pdf) => {
-          pdf.save(this.formCreate.controls['nameUser'].value + " - Termo de Uso.pdf")
+      // Configurar a largura do elemento HTML
+      const elementoHTML = this.elemento.nativeElement;
+      elementoHTML.style.width = '575px'; // Defina a largura desejada em pixels
 
+      let pdf = new jsPDF('p', 'pt', 'a4');
+      pdf.html(elementoHTML, {
+        margin: 10,
+        callback: (pdf) => {
+          pdf.save(this.formCreate.controls['nameUser'].value + " - Termo de Uso.pdf");
         }
-      })
+      });
 
     } else {
       this.serviceEquipment.showMessage("Preencha o formulário corretamente.", 'error')

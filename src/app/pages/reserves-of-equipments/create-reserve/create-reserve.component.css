@@ -43,11 +43,10 @@ mat-card {
     padding: 30px;
 }
 
-.pdfTerms {
-    width: 82%;
-    margin: 30px;
-    text-align: center;
-}
+/* .pdfTerms {
+    width: 100%;    
+    justify-content: center;
+} */
 
 .headerPDF {
     display: flex;
@@ -64,6 +63,7 @@ mat-card {
 p {
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
+    font-size: 12px;
 }
 
 p {
