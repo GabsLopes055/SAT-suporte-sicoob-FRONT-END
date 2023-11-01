@@ -68,8 +68,8 @@ export class CreateReserveComponent {
 
       // Configurar a largura do elemento HTML
       const elementoHTML = this.elemento.nativeElement;
-      elementoHTML.style.width = '575px'; // Defina a largura desejada em pixels
-
+      elementoHTML.style.width = '555px'; // Defina a largura desejada em pixels
+      elementoHTML.style.fontSize = '8';;
       let pdf = new jsPDF('p', 'pt', 'a4');
       pdf.html(elementoHTML, {
         margin: 10,

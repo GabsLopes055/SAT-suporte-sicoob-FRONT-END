@@ -9,8 +9,7 @@ import { ReservesOfEquipmentsModule } from './pages/reserves-of-equipments/reser
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  {
-    path: 'dashboard', component: LayoutComponent, canActivate: [AuthGuard],
+  { path: 'dashboard', component: LayoutComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'send-sms', loadChildren: () => import('./../app/pages/send-sms/send-sms.module').then(module => module.SendSMSModule) },

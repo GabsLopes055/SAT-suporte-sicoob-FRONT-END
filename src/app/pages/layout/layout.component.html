@@ -1,41 +1,41 @@
 <mat-drawer-container class="container">
     <mat-drawer mode="side" opened>
-        <mat-toolbar color="primary">
+        <mat-toolbar>
             <mat-nav-list class="nav-list">
                 <div class="img">
-                    <img src="../../../assets/img/avataaars.svg" alt="logo-usuario">
+                    <img src="../../../assets/img/sicoob.jpg" alt="logo-usuario">
                 </div>
-                <mat-list-item routerLink="/dashboard"><a><mat-icon>dashboard</mat-icon>
+                <mat-list-item routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a><mat-icon>dashboard</mat-icon>
                         <p>Inicio</p>
                     </a></mat-list-item>
                 <!-- <mat-list-item routerLink="send-sms"><a><mat-icon>feed</mat-icon>
                         <p> Envio de Senha</p>
                     </a></mat-list-item> -->
-                <mat-list-item routerLink="reserveOfEquipments"><a><mat-icon>construction</mat-icon>
+                <mat-list-item routerLink="reserveOfEquipments" routerLinkActive="active"><a><mat-icon>construction</mat-icon>
                         <p> Reserva de Equipamento</p>
                     </a></mat-list-item>
-                <mat-list-item routerLink="automations"><a><mat-icon>textsms</mat-icon>
+                <mat-list-item routerLink="automations" routerLinkActive="active"><a><mat-icon>textsms</mat-icon>
                         <p>Automatizações</p>
                     </a></mat-list-item>
-                <mat-list-item routerLink="softwares"><a><mat-icon>terminal</mat-icon>
+                <mat-list-item routerLink="softwares" routerLinkActive="active"><a><mat-icon>terminal</mat-icon>
                         <p>Softwares</p>
                     </a></mat-list-item>
                 <!-- <mat-list-item><a><mat-icon>vpn_lock</mat-icon> Acesso VPN</a></mat-list-item> -->
-                <mat-list-item routerLink="informations"><a><mat-icon>notifications_active</mat-icon>
+                <mat-list-item routerLink="informations" routerLinkActive="active"><a><mat-icon>notifications_active</mat-icon>
                         <p>Informes</p>
                     </a></mat-list-item>
-                <mat-list-item routerLink="manuais"><a><mat-icon>menu_book</mat-icon>
+                <mat-list-item routerLink="manuais" routerLinkActive="active"><a><mat-icon>menu_book</mat-icon>
                         <p>Manuais</p>
                     </a></mat-list-item>
                 <!-- <mat-list-item><a><mat-icon>code</mat-icon> DEV</a></mat-list-item> -->
-                <mat-list-item routerLink="users"><a><mat-icon>group</mat-icon>
+                <mat-list-item routerLink="users" routerLinkActive="active"><a><mat-icon>group</mat-icon>
                         <p>Usuários</p>
                     </a></mat-list-item>
-                <mat-list-item routerLink="my-informations"><a><mat-icon>settings</mat-icon>
+                <mat-list-item routerLink="my-informations" routerLinkActive="active"><a><mat-icon>settings</mat-icon>
                         <p>Minhas
                             Informações</p>
                     </a></mat-list-item>
-                <mat-list-item (click)="logout()"><a><mat-icon>logout</mat-icon>
+                <mat-list-item (click)="logout()" routerLinkActive="active"><a><mat-icon>logout</mat-icon>
                         <p>Sair</p>
                     </a></mat-list-item>
             </mat-nav-list>

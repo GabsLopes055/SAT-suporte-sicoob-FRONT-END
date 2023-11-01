@@ -5,23 +5,32 @@
 }
 
 mat-drawer {
-    align-items: center;
+
+    /* align-items: center; */
     /* background-color: #1CA295; */
     /* background-color: #1CA295; */
     /* width: 10%; */
 }
 
 mat-toolbar {
-    /* width: auto; */
     height: 100%;
-    /* display: flex; */
-    /* flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center; */
-    /* background-color: #1CA295; */
+    background-color: #312C7B;
     /* background-color: #9ECB64; */
     /* background-color: #00ae9d; */
+    /* background-image: url("../../../assets/img/SICOOBVERTICAL.png");
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+mat-list-item {
+    display: flex;
+    justify-content: baseline;
+    padding-top: 15px;
+}
+
+.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 .img {
@@ -41,7 +50,7 @@ mat-nav-list mat-list-item a {
 img {
     width: 100px;
     height: 100px;
-    border-radius: 500px;
+    border-radius: 10px;
 }
 
 @media (max-width: 1024px) {

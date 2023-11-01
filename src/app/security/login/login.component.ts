@@ -34,8 +34,8 @@ export class LoginComponent {
 
   public criarFormulario(): FormGroup {
     return this.formBuilder.group({
-      username: ["teste", [Validators.required]],
-      password: ["123", [Validators.required]]
+      username: ["", [Validators.required]],
+      password: ["", [Validators.required]]
     })
   }
 
