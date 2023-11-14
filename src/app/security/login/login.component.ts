@@ -34,17 +34,17 @@ export class LoginComponent {
 
   public criarFormulario(): FormGroup {
     return this.formBuilder.group({
-      username: ["", [Validators.required]],
-      password: ["", [Validators.required]]
+      username: ["teste", [Validators.required]],
+      password: ["1234", [Validators.required]]
     })
   }
 
-  public submitForm() {
+  public submitForm(): any {
 
     if (this.formLogin.valid) {
       const { username, password } = this.formLogin.value;
       this.loginService.login(username, password).subscribe(
-        (res) => {
+        (response) => {
           this.router.navigate(['dashboard'])
         }
       )

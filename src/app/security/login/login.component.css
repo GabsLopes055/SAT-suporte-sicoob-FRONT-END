@@ -10,8 +10,9 @@
 .content {
     padding: 20px;
     display: flex;
+    flex-direction: column;
     text-align: center;
-    width: 80%;
+    width: 50%;
     border-radius: 10px;
     background-color: white;
     
@@ -23,8 +24,9 @@ h1, h3{
  
 
 .img>img {
-    width: 600px;
-    height: 600px;
+    border-radius: 20px;
+    width: 120px;
+    height: 120px;
 }
 
 .form {
@@ -74,21 +76,24 @@ form {
 }
 
 @media (max-width: 1260px) {
-    .img{
-        display: none;
+    .img>img{
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
     }
-    .content{
+    /* .content{
         display: flex;
         flex-direction: column;
-    }
+    } */
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
     .img{
+
         display: none;
     }
     .content{
         display: flex;
         flex-direction: column;
     }
-}
+} */

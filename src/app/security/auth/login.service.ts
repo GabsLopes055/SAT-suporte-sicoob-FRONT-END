@@ -23,26 +23,38 @@ export class LoginService {
   }
 
   errorHandler(e: any): Observable<any> {
-    if (e.status == 400) {
+    if (e.status == 402) {
       this.showMessage("Senha incorreta.", "warning")
     } else if (e.status == 401) {
       this.showMessage("Usuário Desativado. Peça para um de nossos administradores permitir a sua entrada.", "primary")
     } else if (e.status == 404) {
-      this.showMessage("Usuário não encontrado.","error")
+      this.showMessage("Usuário não encontrado.", "error")
     } else if (e.status == 500) {
       this.showMessage("Erro interno do servidor.", "error")
-    }    
+    }
     return EMPTY;
   }
 
   public login(username: string, password: string): Observable<any> {
 
-    const url = `${environment.baseUrlBackend}/login`
+    const url = `${environment.baseUrlBackend}/login`;
 
-    return this.http.post(url, { username, password }, { responseType: 'json' }).pipe(
-      map((obj) => this.setTokenLocalStorage(obj), sessionStorage.setItem('login', username)),
-      catchError((e) => this.errorHandler(e))
-    )
+    return this.http.post(url, {username, password}, { responseType: 'text' }).pipe(
+      map((response) =>
+        this.setTokenLocalStorage(response),
+        sessionStorage.setItem('login', username)),
+
+      catchError((e) => this.errorHandler(e.message)
+      ))
+
+
+
+    // return this.http.post<String>(url, { username, password }, { responseType: 'json' }).pipe(
+    //   map((obj) => 
+    //   this.setTokenLocalStorage(obj), 
+    //   sessionStorage.setItem('login', username)),
+    //   catchError((e) => this.errorHandler(e))
+    // )
   }
 
   public resetPasswordByUser(passwordRequest: any): Observable<any> {
@@ -74,11 +86,13 @@ export class LoginService {
 
   private setTokenLocalStorage(response: any): any {
 
+    // console.log(response)
+
     const token = response['token'];
 
     const expiration = new Date().getTime() + 2000000;
 
-    sessionStorage.setItem(environment.token, token);
+    sessionStorage.setItem(environment.token, response);
     sessionStorage.setItem(environment.expirationDate, expiration.toLocaleString());
 
   }

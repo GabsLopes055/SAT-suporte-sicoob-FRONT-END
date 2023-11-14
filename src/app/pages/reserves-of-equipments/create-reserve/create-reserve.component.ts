@@ -4,7 +4,6 @@ import { EquipmentsService } from '../shared/equipments.service';
 import { equipments } from 'src/app/interfaces/equipments.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReserveServiceService } from '../shared/reserve-service.service';
-import { TermsPDFComponent } from '../terms-pdf/terms-pdf.component';
 import { jsPDF } from 'jspdf';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
