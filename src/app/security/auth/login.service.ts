@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class LoginService {
 
-  private userLogin: any;
+  url = `${environment.baseUrlBackend}`;
 
   constructor(private message: MatSnackBar, private http: HttpClient) { }
 
@@ -23,10 +23,10 @@ export class LoginService {
   }
 
   errorHandler(e: any): Observable<any> {
-    if (e.status == 402) {
-      this.showMessage("Senha incorreta.", "warning")
+    if (e.status == 400) {
+      this.showMessage("Usuário Desativado. Peça para um de nossos administradores permitir a sua entrada.", "error")
     } else if (e.status == 401) {
-      this.showMessage("Usuário Desativado. Peça para um de nossos administradores permitir a sua entrada.", "primary")
+      this.showMessage("Usuário ou senha Inválidos", "error")
     } else if (e.status == 404) {
       this.showMessage("Usuário não encontrado.", "error")
     } else if (e.status == 500) {
@@ -37,24 +37,16 @@ export class LoginService {
 
   public login(username: string, password: string): Observable<any> {
 
-    const url = `${environment.baseUrlBackend}/login`;
 
-    return this.http.post(url, {username, password}, { responseType: 'text' }).pipe(
+
+    return this.http.post(this.url + "/login", { username, password }, { responseType: 'text' }).pipe(
       map((response) =>
         this.setTokenLocalStorage(response),
         sessionStorage.setItem('login', username)),
 
-      catchError((e) => this.errorHandler(e.message)
+      catchError((e) => this.errorHandler(e)
       ))
 
-
-
-    // return this.http.post<String>(url, { username, password }, { responseType: 'json' }).pipe(
-    //   map((obj) => 
-    //   this.setTokenLocalStorage(obj), 
-    //   sessionStorage.setItem('login', username)),
-    //   catchError((e) => this.errorHandler(e))
-    // )
   }
 
   public resetPasswordByUser(passwordRequest: any): Observable<any> {
@@ -84,7 +76,7 @@ export class LoginService {
     sessionStorage.removeItem('login')
   }
 
-  private setTokenLocalStorage(response: any): any {
+  public setTokenLocalStorage(response: any): any {
 
     // console.log(response)
 

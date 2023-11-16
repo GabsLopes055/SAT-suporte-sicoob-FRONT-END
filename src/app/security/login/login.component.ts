@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { LoginService } from '../auth/login.service';
+import { AuthenticationLDAPService } from '../auth/authentication-ldap.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +20,7 @@ export class LoginComponent {
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
     private loginService: LoginService,
+    private ldap: AuthenticationLDAPService,
     private router: Router
   ) {
 
@@ -41,15 +43,25 @@ export class LoginComponent {
 
   public submitForm(): any {
 
-    if (this.formLogin.valid) {
-      const { username, password } = this.formLogin.value;
-      this.loginService.login(username, password).subscribe(
+    const { username, password } = this.formLogin.value;
+
+    if (username.substr(0, 4) == "ADM-" || username.substr(0, 4) == "adm-") {
+      this.ldap.authenticationLDAP(username, password).subscribe(
         (response) => {
           this.router.navigate(['dashboard'])
         }
       )
+    } else {
+      if (this.formLogin.valid) {
+        this.loginService.login(username, password).subscribe(
+          (response) => {
+            this.router.navigate(['dashboard'])
+          }
+        )
+      }
     }
   }
+
 
   public register() {
     this.dialog.open(RegisterComponent, {
