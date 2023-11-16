@@ -16,7 +16,7 @@
                     routerLinkActive="active"><a><mat-icon>construction</mat-icon>
                         <p> Reserva de Equipamento</p>
                     </a></mat-list-item>
-                <mat-list-item><a><mat-icon>code</mat-icon>
+                <mat-list-item *ngIf="getUserLocalStorage()"><a><mat-icon>code</mat-icon>
                         <p> Usuários DEV</p>
                     </a></mat-list-item>
                 <mat-list-item routerLink="automations" routerLinkActive="active"><a><mat-icon>textsms</mat-icon>

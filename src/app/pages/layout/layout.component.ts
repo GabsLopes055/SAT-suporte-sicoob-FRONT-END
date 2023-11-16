@@ -9,13 +9,26 @@ import { LoginService } from 'src/app/security/auth/login.service';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
-  // , private loginService: LoginService
-  constructor(private router: Router, private loginService: LoginService){}
 
-  public logout(){
+
+
+  constructor(private router: Router, private loginService: LoginService) { }
+
+  public logout() {
     this.loginService.removerTokenLocalStorage();
     this.router.navigate(['/']);
   }
 
+
+  getUserLocalStorage(): boolean {
+
+    // var userLogin = this.loginService.getLoginSessionStorara();
+
+    if (this.loginService.getLoginSessionStorara()?.substr(0, 4) == "ADM-" || this.loginService.getLoginSessionStorara()?.substr(0, 4) == "adm-") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }

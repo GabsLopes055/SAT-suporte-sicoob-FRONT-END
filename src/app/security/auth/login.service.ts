@@ -36,17 +36,12 @@ export class LoginService {
   }
 
   public login(username: string, password: string): Observable<any> {
-
-
-
     return this.http.post(this.url + "/login", { username, password }, { responseType: 'text' }).pipe(
       map((response) =>
         this.setTokenLocalStorage(response),
         sessionStorage.setItem('login', username)),
-
       catchError((e) => this.errorHandler(e)
       ))
-
   }
 
   public resetPasswordByUser(passwordRequest: any): Observable<any> {
@@ -66,6 +61,10 @@ export class LoginService {
     return sessionStorage.getItem(environment.token)
   }
 
+  public getLoginSessionStorara(): String | null {
+    return sessionStorage.getItem("login");
+  }
+ 
   public getexpirationDate(): any | null {
     return sessionStorage.getItem(environment.expirationDate)
   }
