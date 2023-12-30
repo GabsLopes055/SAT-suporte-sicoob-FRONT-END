@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    baseUrlBackend: 'http://localhost:8080/api/sat',
+    baseUrlBackend: 'https://suporte-helpdesk-production.up.railway.app/api/sat',
     token: 'token',
     expirationDate: 'expirationDate',
 };
